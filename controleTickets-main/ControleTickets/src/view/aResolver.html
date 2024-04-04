@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tickets</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <nav class="nav">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="../img/logotipo-03.png" height="35" alt="">
+    </a>
+
+    <div class="nav-container">
+      <a href="./index.html">Home</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Tickets
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Novo Ticket</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="./aResolver.html">A Resolver</a></li>
+          <li><a class="dropdown-item" href="./solucionado.html">Solucionados</a></li>
+        </ul>
+      </li>
+    </div>
+
+  </nav>
+  <div class="content">
+
+    <h1 class="title">Tickets em aberto</h1>
+
+    <div class="table-container">
+      <table class="table table-hover">  
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">Serial</th>
+            <th scope="col">Nome Cliente</th>
+            <th scope="col">Ticket</th>
+            <th scope="col">Data</th>
+            <th scope="col">Ultima Interação</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <!-- Conteúdo será gerado dinâmicamente pelo JS -->
+            <td class="text-center">013388</td>
+            <td class="text-center">Innovate Automação</td>
+            <td class="text-center">0000001</td>
+            <td class="text-center">03/04/2024</td>
+            <td class="text-center">Teste</td>
+          </tr>
+          
+          <tr>
+            <!-- Conteúdo será gerado dinâmicamente pelo JS -->
+            <td class="text-center">013388</td>
+            <td class="text-center">Innovate Automação</td>
+            <td class="text-center">0000002</td>
+            <td class="text-center">03/04/2024</td>
+            <td class="text-center">Teste2</td>
+          </tr>
+        </tbody>
+
+      </table>
+      
+    </div>
+
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
