@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh; /* Ocupa toda a altura da tela */
+  background-color: lightgray; /* Apenas para visualização */
+  display: flex; /* Aplicando flexbox ao body */
+  /* justify-content: center; Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  flex-direction: column;
+}
+
+.nav {
+  background-color: rgb(28, 64, 182) !important;
+  width: 100%;
+  display: flex; /* Define a largura total */
+  margin-bottom: 1.5%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.dropdown-item {
+  color: black !important;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.content {
+  background-color: rgb(28, 64, 182);
+  width: 96%;
+  height: 88%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-image: url(../../img/logotipo-03.png);
+  background-size:100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title {
+  color: white;
+}
+
+.table-container {
+  background-color: tomato !important;
+  display: flex;
+  width: 80%;
+  /* height: 70%; */
+}
+
+.table {
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  border: 5px solid black;
+  background-image:url(../../img/logotipo-03.png);
+  background-size:100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center; 
+  vertical-align: middle;
+}
+
+.btn {
+  cursor: pointer;
+}
