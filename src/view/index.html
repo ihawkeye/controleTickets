@@ -1,4 +1,5 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -9,15 +10,37 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .popup-content {
+      text-align: left;
+    }
+    .popup-section {
+      margin-bottom: 15px;
+    }
+    .close {
+      position: absolute; top: 5px;
+      right: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <nav class="nav">
-
     <a class="navbar-brand" href="index.html">
       <img src="../assets/img/logotipo-03.png" height="35" alt="">
     </a>
-
     <div class="nav-container">
       <a href="./index.html">Home</a>
       <li class="nav-item dropdown">
@@ -26,38 +49,32 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Novo Ticket</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+          <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="./aResolver.html">A Resolver</a></li>
           <li><a class="dropdown-item" href="./solucionado.html">Solucionados</a></li>
         </ul>
       </li>
     </div>
-
   </nav>
+
   <div class="content">
-
     <p style="color: white;">TELA DE AVISOS</p>
-
     <h1 class="title">Prioridades</h1>
     <div class="table-container">
-      <table class="table table-hover">  
+      <table class="table table-hover">
         <thead class="thead-dark text-center">
           <tr>
             <th scope="col">Serial</th>
             <th scope="col">Nome Cliente</th>
             <th scope="col">Ticket</th>
             <th scope="col">Data</th>
-            <th scope="col">Ultima Interação</th>
+            <th scope="col">Última Interação</th>
             <th scope="col" colspan="2">Ações</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
-            <!-- Conteúdo será gerado dinâmicamente pelo JS -->
-            <td class="text-center">013388</td>
+            <td class="text-center serial">013388</td>
             <td class="text-center">Innovate Automação</td>
             <td class="text-center">0000001</td>
             <td class="text-center">03/04/2024</td>
@@ -68,15 +85,13 @@
               </button>
             </td>
             <td>
-              <button class="btn"  id="btn-edit" type="button" class="btn">
+              <button class="btn" id="btn-edit" type="button" class="btn">
                 <i class="fa-solid fa-bolt"></i>
               </button>
             </td>
           </tr>
-          
           <tr>
-            <!-- Conteúdo será gerado dinâmicamente pelo JS -->
-            <td class="text-center">013388</td>
+            <td class="text-center serial">013389</td>
             <td class="text-center">Innovate Automação</td>
             <td class="text-center">0000002</td>
             <td class="text-center">03/04/2024</td>
@@ -93,18 +108,56 @@
             </td>
           </tr>
         </tbody>
-
       </table>
-      
     </div>
-
   </div>
-
-
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close" id="closePopup">&times;</span>
+      <div class="popup-section">
+        <h2>Informações</h2>
+        <p><strong>Serial:</strong> <span id="popupSerial"></span></p>
+        <p><strong>Nome Cliente:</strong> <span id="popupCliente"></span></p>
+        <p><strong>Ticket:</strong> <span id="popupTicket"></span></p>
+        <p><strong>Data:</strong> <span id="popupData"></span></p>
+        <p><strong>Última Interação:</strong> <span id="popupInteracao"></span></p>
+      </div>
+    
+      <div class="popup-section">
+        <h3>Descrição</h3>
+        <p id="popupDescricao"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+
+  <script>
+    const serialCells = document.querySelectorAll('.serial');
+    serialCells.forEach(cell => {
+      cell.addEventListener('click', function () {
+        const rowData = this.parentNode.querySelectorAll('td');
+        const serial = rowData[0].textContent;
+        const cliente = rowData[1].textContent;
+        const ticket = rowData[2].textContent;
+        const data = rowData[3].textContent;
+        const interacao = rowData[4].textContent;
+        const descricao = 'Ticket sobre o problema x que precisa de y e reportado por z'; 
+        document.getElementById('popupSerial').textContent = serial;
+        document.getElementById('popupCliente').textContent = cliente;
+        document.getElementById('popupTicket').textContent = ticket;
+        document.getElementById('popupData').textContent = data;
+        document.getElementById('popupInteracao').textContent = interacao;
+        document.getElementById('popupDescricao').textContent = descricao;
+        document.getElementById('popup').style.display = 'block';
+      });
+    });
+    document.getElementById('closePopup').addEventListener('click', function () {
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
 </body>
 
 </html>
