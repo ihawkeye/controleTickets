@@ -5,15 +5,11 @@
 }
 
 body {
-  height: 100vh;
-  /* ocupa toda a altura da tela */
-  background-color: rgb(255, 255, 255);
-  /* só para visualização */
-  display: flex;
-  /* define a largura total */
+  height: 100vh; /* ocupa toda a altura da tela */
+  background-color: rgb(255, 255, 255); /* só para visualização */
+  display: flex; /* define a largura total */
   /* justify-content: center; centraliza horizontalmente */
-  align-items: center;
-  /* centraliza verticalmente */
+  align-items: center; /* centraliza verticalmente */
   flex-direction: column;
 }
 
@@ -22,8 +18,7 @@ body {
   width: 100%;
   display: flex;
   margin-bottom: 0.5%;
-  align-items: center;
-  /* justify-content: space-between; */
+  align-items: center; /* justify-content: space-between; */
 }
 
 .nav a {
@@ -177,8 +172,11 @@ body {
 }
 
 .modal-body {
+  display: flex;
+  flex-direction: column;
   background-color: #f2f3f5;
   color: #1a1919;
+  justify-content:space-around !important;
 }
 
 .modal-body span {
@@ -194,7 +192,7 @@ body {
 }
 
 .btn-success {
-  background-color: #f2f3f5;
+  background-color: #e1e5eb;
   color: #007bff;
 }
 
