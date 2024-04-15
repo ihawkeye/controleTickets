@@ -95,8 +95,3 @@ $(document).ready(function() {
       });
     }
   });
-
-
-
-
-  

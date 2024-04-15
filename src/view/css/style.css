@@ -17,7 +17,7 @@ body {
   background-color: rgb(28, 64, 182) !important;
   width: 100%;
   display: flex;
-  margin-bottom: 0.5%;
+  /* margin-bottom: 0.5%; */
   align-items: center; /* justify-content: space-between; */
 }
 
