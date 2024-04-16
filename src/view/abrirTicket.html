@@ -38,53 +38,122 @@
     </nav>
     <div class="content">
 
-        <h1 class="title">Abrir Ticket</h1>
+        <h1 class="title">Abertura de Ticket</h1>
 
         <div class="form-container">
             <form class="row">
-                <div class="col-md-2">
-                    <label for="inputSerial" class="form-label">Serial</label>
-                    <input type="email" class="form-control" id="inputSerial">
+                <div class="row firstRowForm">
+                    <div class="col-md-2">
+                        <label for="inputSerial" class="form-label">Serial</label>
+                        <input type="text" class="form-control" id="inputSerial">
+                    </div>
+
+                    <div class="col-md-7">
+                        <label for="inputCliente" class="form-label">Cliente</label>
+                        <input type="text" class="form-control" id="inputCliente">
+                    </div>
+
+                    <div class="col-3">
+                        <label for="inputCategoria" class="form-label">Técnico</label>
+                        <select id="inputCategoria" class="form-select">
+                            <option selected>Eduardo</option>
+                            <option>Francisco</option>
+                            <option>Gabriel</option>
+                            <option>Santana</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <label for="inputCliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" id="inputCliente">
-                </div>
-                <div class="col-md-3 switch">
-                    <div class="form-check form-switch">
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Encaminhado ao Vinícius?</label>
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                      </div>
-                </div>
-                <div class="col-3">
-                    <label for="inputCategoria" class="form-label">Categoria</label>
-                    <select id="inputCategoria" class="form-select">
-                        <option selected>Bug</option>
-                        <option>Solicitação</option>
-                    </select>
-                </div>
-                <div class="col-3">
-                    <label for="inputPrioridade" class="form-label">Prioridade</label>
-                    <select id="inputPrioridade" class="form-select">
-                        <option selected>Baixa</option>
-                        <option>Média</option>
-                        <option>Alta</option>
-                        <option>Urgente</option>
-                    </select>
+
+                <div class="row rowForm">
+                    <div class="col-md-2">
+                        <label for="inputTicket" class="form-label">Ticket</label>
+                        <input type="text" class="form-control" id="inputTicket">
+                    </div>
+
+                    <div class="col-3">
+                        <label for="inputCategoria" class="form-label">Tipo</label>
+                        <select id="inputCategoria" class="form-select">
+                            <option selected>Bug</option>
+                            <option>Solicitação</option>
+                        </select>
+                    </div>
+
+                    <div class="col-2">
+                        <label for="inputPrioridade" class="form-label">Prioridade</label>
+                        <select id="inputPrioridade" class="form-select">
+                            <option selected>Baixa</option>
+                            <option>Média</option>
+                            <option>Alta</option>
+                            <option>Urgente</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputCategoria" class="form-label">Categoria</label>
+                        <select id="inputCategoria" class="form-select">
+                            <option selected>C-Plus 5.1</option>
+                            <option>Sugestão</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="inputVersao" class="form-label">Versão</label>
+                        <input type="text" class="form-control" id="inputVersao">
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
+                    <label for="inputStatus" class="form-label">Status</label>
+                    <select id="inputStatus" class="form-select">
+                        <option selected>Em análise</option>
+                        <option>Aguardando VVS</option>
+                        <option>Resolvido</option>
+                        <option>Realizar Teste</option>
+                        <option>Não Resolvido</option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+
+                <div class="col-md-3">
+                    <label for="inputUltimoTeste" class="form-label">Último Teste</label>
+                    <input type="date" class="form-control" id="inputUltimoTeste">
                 </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+
+                <div class="col-md-4 switch">
+                    <div class="form-check form-switch">
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Encaminhado ao Vinícius?</label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                            checked>
+                    </div>
+                </div>
+
+                <div style="width:100%; border: solid 1px; margin-top: 2%; margin-bottom: 2%;"></div>
+
+                <div class="card card-body">
+                    <label for="inputTextObservacoes" class="form-label">Ocorrência</label>
+                    <div class="col-md-12">
+                        <textarea class="inputTextObservacoes" id="form-textArea" rows="3" cols="100%"></textarea>
+                    </div>
+                </div>
+
+                <p class="d-inline-flex observacoes">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseObservacoes" role="button"
+                        aria-expanded="false" aria-controls="collapseExample">
+                        Observações
+                    </a>
+                </p>
+
+                <div class="collapse" id="collapseObservacoes">
+                    <div class="card card-body">
+                        <label for="inputTextObservacoes" class="form-label">Observações</label>
+                        <div class="col-md-12">
+                            <textarea class="inputTextObservacoes" id="form-textArea" rows="3" cols="100%"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 acao">
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Gravar</button>
                 </div>
             </form>
         </div>
