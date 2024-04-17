@@ -12,30 +12,38 @@
 
 <body>
     <nav class="nav">
-
         <a class="navbar-brand" href="index.html">
-            <img src="../assets/img/logotipo-03.png" height="35" alt="">
+          <img src="../assets/img/logotipo-03.png" height="35" alt="" />
         </a>
-
         <div class="nav-container">
-            <a href="./index.html">Home</a>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Tickets
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./abrirTicket.html">Novo Ticket</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="./aResolver.html">A Resolver</a></li>
-                    <li><a class="dropdown-item" href="./solucionado.html">Solucionados</a></li>
-                </ul>
-            </li>
+          <a href="./index.html" class="itemNav">Home</a>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle itemNav"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Tickets
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./abrirTicket.html">Novo Ticket</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" href="./aResolver.html">A Resolver</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="./solucionado.html"
+                  >Solucionados</a
+                >
+              </li>
+            </ul>
+          </li>
         </div>
-
-    </nav>
+      </nav>
     <div class="content">
 
         <h1 class="title">Abertura de Ticket</h1>
@@ -96,7 +104,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <label for="inputVersao" class="form-label">Versão</label>
                         <input type="text" class="form-control" id="inputVersao">
                     </div>
@@ -128,10 +136,14 @@
                 <div style="width:100%; border: solid 1px; margin-top: 2%; margin-bottom: 2%;"></div>
 
                 <div class="card card-body">
-                    <label for="inputTextObservacoes" class="form-label">Ocorrência</label>
-                    <div class="col-md-12">
-                        <textarea class="inputTextObservacoes" id="form-textArea" rows="3" cols="100%"></textarea>
-                    </div>
+                    <div class="obsHeader">
+                        <label for="inputTextObservacoes" class="form-label">Ocorrência</label>
+                        <label for="inputTextObservacoes" class="form-label">Observações</label>
+                    </div> 
+                        <div class="col-md-5 containerObs">
+                            <textarea class="inputTextOcorrencia" id="form-textAreaOcorrencia" rows="3" cols="60%"></textarea>
+                            <textarea class="inputTextObservacoes" id="form-textArea" rows="3" cols="60%"></textarea>
+                        </div>
                 </div>
 
                 <p class="d-inline-flex observacoes">

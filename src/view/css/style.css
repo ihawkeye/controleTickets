@@ -5,8 +5,8 @@
 }
 
 body {
+  background-color: #1c40b6;
   height: 100vh; /* ocupa toda a altura da tela */
-  background-color: rgb(255, 255, 255); /* só para visualização */
   display: flex; /* define a largura total */
   /* justify-content: center; centraliza horizontalmente */
   align-items: center; /* centraliza verticalmente */
@@ -14,22 +14,23 @@ body {
 }
 
 .nav {
-  background-color: rgb(28, 64, 182) !important;
+  margin-top: 0.5%;
+  background-color: #1c40b6 !important;
   width: 100%;
   display: flex;
   /* margin-bottom: 0.5%; */
-  align-items: center; /* justify-content: space-between; */
+  align-items: center; 
+  /* justify-content: space-between; */
 }
 
-.nav a {
-  color: rgb(255, 255, 255);
+.itemNav {
+  color: #FFF !important;
   text-decoration: none;
   font-size: 18px;
 }
 
-.nav a:hover,
-.nav .show .nav-link {
-  color: #0c75ff !important;
+.itemNav:hover, .itemNav:focus {
+  text-decoration: underline;
 }
 
 .dropdown:hover>.dropdown-menu {
@@ -38,6 +39,10 @@ body {
 
 .dropdown-item {
   color: black !important;
+}
+
+.dropdown-item:hover {
+  color: #2a56e7 !important
 }
 
 .nav-container {
@@ -51,7 +56,7 @@ body {
 }
 
 .content {
-  background-color: rgb(28, 64, 182);
+  background-color: #1c40b6;
   width: 100%;
   height: 100%;
   display: flex;
@@ -112,10 +117,6 @@ body {
   text-align: center;
 }
 
-.filtroSelect option {
-  border-radius: 20px;
-}
-
 .filtroInput {
   border: solid;
   border-radius: 20px;
@@ -159,18 +160,29 @@ body {
 
 .table-hover tbody tr:hover td button{
   /* background: rgb(122, 145, 170); */
-  color: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #0077ff !important;
+  border-radius: 100%;
 }
 
 .btn {
   cursor: pointer;
 }
 
-#btn-edit {
-    color: #0077ff;
+#btn-edit, #btn-interact {
+    background-color: #0077ff;
+    color: #ffffff;
+    border-radius: 100%;
     cursor: pointer;
 }
 
+#btn-edit:hover {
+  transform: scale(1.2);
+}
+
+#btn-interact:hover {
+  transform: scale(1.2);
+}
 .modal-body {
   display: flex;
   flex-direction: column;

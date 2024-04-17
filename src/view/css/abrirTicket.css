@@ -2,53 +2,53 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-h1 {
-    font-size: 30px;
-}
-
-body {
-    height: 100vh;
-    /* ocupa toda a altura da tela */
-    background-color: rgb(255, 255, 255);
-    /* só para visualização */
-    display: flex;
-    /* define a largura total */
+  }
+  
+  body {
+    background-color: #1c40b6;
+    height: 100vh; /* ocupa toda a altura da tela */
+    display: flex; /* define a largura total */
     /* justify-content: center; centraliza horizontalmente */
-    align-items: center;
-    /* centraliza verticalmente */
+    align-items: center; /* centraliza verticalmente */
     flex-direction: column;
-}
-
-.nav {
-    background-color: rgb(28, 64, 182) !important;
+  }
+  
+  .nav {
+    margin-top: 0.5%;
+    background-color: #1c40b6 !important;
     width: 100%;
     display: flex;
-    align-items: center;
+    /* margin-bottom: 0.5%; */
+    align-items: center; 
     /* justify-content: space-between; */
-}
-
-.nav a {
-    color: rgb(255, 255, 255);
+  }
+  
+  .itemNav {
+    color: #FFF !important;
     text-decoration: none;
     font-size: 18px;
-}
-
-.nav a:hover,
-.nav .show .nav-link {
-    color: #0c75ff !important;
-}
-
-.dropdown:hover>.dropdown-menu {
+  }
+  
+  .itemNav:hover, .itemNav:focus {
+    text-decoration: underline;
+  }
+  
+  .dropdown:hover>.dropdown-menu {
     display: block;
-}
-
-.dropdown-item {
+  }
+  
+  .dropdown-item {
     color: black !important;
-}
-
-.nav-container {
+  }
+  
+  .dropdown-item:hover {
+    color: #2a56e7 !important
+  }
+  .dropdown-item:focus {
+    background-color: #FFF;
+  }
+  
+  .nav-container {
     margin-left: 2%;
     display: flex;
     flex-direction: row !important;
@@ -56,11 +56,12 @@ body {
     text-align: center;
     justify-content: center;
     justify-items: center;
-}
+  }
 
-.title {
-    color: white;
-}
+  .title {
+    color: #FFF !important;
+    font-size: 26px;
+  }
 
 .content {
     background-color: rgb(28, 64, 182) !important;
@@ -108,6 +109,7 @@ form {
 }
 
 .rowForm {
+    /* justify-content:space-around !important; */
     margin-top: 2%;
     margin-bottom: 2%;
 }
@@ -125,6 +127,27 @@ form {
     border:solid 2px;
     border-radius: 8px;
     margin-left: 1px;
+}
+
+.card-body {
+    width: 100%;
+    height: 100%;
+}
+
+.obsHeader{
+    display: flex;
+    justify-content: space-around !important;
+}
+
+.containerObs {
+    width: 100%;
+    height: 100%;
+    flex-direction: row !important;
+    justify-content:space-between !important;
+}
+
+.inputTextOcorrencia {
+    margin-right: 20px !important;
 }
 
 .observacoes {
