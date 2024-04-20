@@ -15,7 +15,7 @@ body {
 
 .nav {
   margin-top: 0.5%;
-  background-color: #1c40b6 !important;
+  /* background-color: #1c40b6 !important; */
   width: 100%;
   display: flex;
   /* margin-bottom: 0.5%; */
@@ -38,10 +38,12 @@ body {
 }
 
 .dropdown-item {
+  background-color: #FFF !important;
   color: black !important;
 }
 
 .dropdown-item:hover {
+  background-color: #f4f4f4 !important;
   color: #2a56e7 !important
 }
 
@@ -56,7 +58,7 @@ body {
 }
 
 .content {
-  background-color: #1c40b6;
+  /* background-color: #1c40b6; */
   width: 100%;
   height: 100%;
   display: flex;

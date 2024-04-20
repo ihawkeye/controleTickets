@@ -129,25 +129,35 @@ form {
     margin-left: 1px;
 }
 
+.card {
+  background-color: #284dc5 !important;
+  padding: 2%;
+}
+
 .card-body {
     width: 100%;
     height: 100%;
+    justify-content: space-between !important;
+    border: solid 2px #000000;
+}
+
+.contentObs {
+  border: dashed 2px #000000;
+  padding: 2%;
 }
 
 .obsHeader{
+    color: #FFF;
     display: flex;
     justify-content: space-around !important;
 }
 
 .containerObs {
+    display: flex;
     width: 100%;
     height: 100%;
     flex-direction: row !important;
-    justify-content:space-between !important;
-}
-
-.inputTextOcorrencia {
-    margin-right: 20px !important;
+    justify-content:space-around !important;
 }
 
 .observacoes {
