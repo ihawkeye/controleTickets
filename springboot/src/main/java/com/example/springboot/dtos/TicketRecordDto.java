@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.sql.Date;
 
-public record TicketRecordDto( String name, Integer id,  Integer idCliente, Integer idTecnico,
+public record TicketRecordDto( @NotBlank String name, @NotNull Integer id,  @NotNull Integer idCliente, @NotNull Integer idTecnico,
                               @NotBlank String tipo, @NotBlank String prioridade,
                               int numero, Integer sac, Date dataOcorrencia,
                               Date dataUltimaInteracao, @NotBlank String categoria,
