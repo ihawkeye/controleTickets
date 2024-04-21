@@ -1,0 +1,22 @@
+->teste de solicitação<-
+
+só tacar no postman no /Ticket
+{
+    "name": "Gabriel",
+    "id": 1,
+    "idCliente": 25,
+    "idTecnico": 45,
+    "tipo": "Bug",
+    "prioridade": "Alta",
+    "numero": 123,
+    "sac": 456,
+    "dataOcorrencia": "2024-04-21",
+    "dataUltimaInteracao": "2024-04-21",
+    "categoria": "Kernel",
+    "dataUltimoTeste": "2024-04-21",
+    "ultimaVersao": "1.5",
+    "status": "Em andamento",
+    "vinicius": true,
+    "ocorrencia": "bug no terminal",
+    "observacao": "lorem ipsum"
+}
