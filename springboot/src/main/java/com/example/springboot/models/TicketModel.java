@@ -26,12 +26,11 @@ public class TicketModel implements Serializable {
     private Integer idCliente;
 
 
-    @JoinColumn(name = "id_tecnico")
-    private Integer idTecnico;
+
 
     private String tipo;
     private String prioridade;
-    private int numero;
+    private Integer numero;
     private Integer sac;
     private Date dataOcorrencia;
     private Date dataUltimaInteracao;
@@ -68,14 +67,6 @@ public class TicketModel implements Serializable {
 
     public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
-    }
-
-    public Integer getIdTecnico() {
-        return idTecnico;
-    }
-
-    public void setIdTecnico(Integer idTecnico) {
-        this.idTecnico = idTecnico;
     }
 
     public String getTipo() {
