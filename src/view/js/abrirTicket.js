@@ -19,13 +19,25 @@ $(document).ready(function(){
          var ocorrencia = $('#inputTextOcorrencia').val();
          var observacoes = $('#inputTextObservacoes').val();
 
-         // Validação de campos obrigatórios para preenchimento. 
+         // limpando marcação dos campos 
+        $('.required').css({"border": "none"});
 
-         if (!serial || !cliente || !ticket || !versao || !ocorrencia) {
-            alert('Por favor, preencha todos os campos destacados.');
-            return;
-        }
+        // ids dos campos obrigatórios
+        var camposObrigatorios = ['inputSerial', 'inputCliente', 'inputTicket', 'inputVersao', 'inputTextOcorrencia'];
 
+
+         // verifica e destaca os campos não preenchidos
+        var camposFaltando = [];
+        camposObrigatorios.forEach(function(id) {
+            var valor = $('#' + id).val();
+            if (!valor) {
+                $('#' + id).css({"border": "2px solid red"});
+                camposFaltando.push(id);
+            }
+        });
+
+       if (camposFaltando.length === 0) {
+        // criação do ticket
         var Ticket = {
             Serial: serial,
             Cliente: cliente,
@@ -50,6 +62,10 @@ $(document).ready(function(){
         arrayTickets.forEach(function(Ticket, index){
             console.log(Ticket);
         });
+    } else {
+        // alerta de campo não preenchido
+        alert('Por favor, preencha todos os campos destacados.');
+    }
 
     });
 

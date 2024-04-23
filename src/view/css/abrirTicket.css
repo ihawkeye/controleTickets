@@ -104,11 +104,17 @@ form {
     justify-content:space-around !important;
 }
 
+.row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
 .firstRowForm{
     margin-top: 2%;
 }
 
-.rowForm {
+.middleRowForm {
     /* justify-content:space-around !important; */
     margin-top: 2%;
     margin-bottom: 2%;
