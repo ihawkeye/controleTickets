@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1c40b6;
+  height: 100vh; /* ocupa toda a altura da tela */
+  display: flex; /* define a largura total */
+  /* justify-content: center; centraliza horizontalmente */
+  align-items: center; /* centraliza verticalmente */
+  flex-direction: column;
+}
+
+.nav {
+  margin-top: 0.5%;
+  /* background-color: #1c40b6 !important; */
+  width: 100%;
+  display: flex;
+  /* margin-bottom: 0.5%; */
+  align-items: center; 
+  /* justify-content: space-between; */
+}
+
+.itemNav {
+  color: #FFF !important;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.itemNav:hover, .itemNav:focus {
+  text-decoration: underline;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  background-color: #FFF !important;
+  color: black !important;
+}
+
+.dropdown-item:hover {
+  background-color: #f4f4f4 !important;
+  color: #2a56e7 !important
+}
+
+.nav-container {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.content {
+  /* background-color: #1c40b6; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  background-image: url(../../assets/img/logotipo-03.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+/* Adicione um pseudo-elemento para criar a sobreposição */
+/* .content::before {  */
+  /* content: ""; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* z-index: 0; */
+/* } */
+
+.title {
+  color: white;
+}
+
+.menuFiltro {
+  /* background-color: red; */
+  display: flex;
+  width: 80%;
+  justify-content: end !important;
+}
+
+.filtro {
+  border: solid 2px !important;
+  border-color: #000000 !important;
+  border-radius: 10px;
+  display: flex;
+  padding: 8px;
+  /* width: 75%; */
+  background-color: #ffffff;
+}
+
+.filtroSelect {
+  background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #ffffff;
+  /* appearance: none; serve para tirar a seta do SELECT*/ 
+  /* overflow: hidden; */
+  border: none;
+  border-radius: 20px;
+  width: 80px;
+  text-align: center;
+}
+
+.filtroInput {
+  border: solid;
+  border-radius: 20px;
+  padding-left: 1%;
+  margin-left: 1% ;
+  margin-right: 1% ;
+}
+
+#btn-filtro {
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.table-container {
+  /* background-color: tomato; */
+  margin-top: 0.5%;
+  display: flex !important;
+  width: 80%;
+  /* height: 70%; */
+}
+
+.table {
+  border-spacing: 0;
+  border-collapse: separate;
+  border-radius: 10px;
+  border: 4px solid black;
+  /* background-image:url(../../assets/img/logotipo-03.png); */
+  /* background-size:100%; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-hover tbody tr:hover td {
+  background: #0077ff;
+  color: #ffffff;
+}
+
+.table-hover tbody tr:hover td button{
+  /* background: rgb(122, 145, 170); */
+  background-color: #ffffff !important;
+  color: #0077ff !important;
+  border-radius: 100%;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+#btn-edit, #btn-interact {
+    background-color: #0077ff;
+    color: #ffffff;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+#btn-edit:hover {
+  transform: scale(1.2);
+}
+
+#btn-interact:hover {
+  transform: scale(1.2);
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f3f5;
+  color: #1a1919;
+  justify-content:space-around !important;
+}
+
+.modal-body span {
+  color: rgb(19, 19, 19);
+}
+
+
+.modal-content {
+  background-color: #0a62d4;
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+}
+
+.btn-success {
+  background-color: #e1e5eb;
+  color: #007bff;
+}
+
+.btn-success:hover {
+  background-color: #ffffff;
+  color: #007bff;
+}
+
+.btn-danger {
+  background-color: #e01c1c;
+}
+
+.btn-danger:hover {
+  background-color: rgb(207, 25, 25);
+}
+
+.modal-dialog {
+  height: 60%;
+  max-width: none;
+  width: 50% !important;
+}
