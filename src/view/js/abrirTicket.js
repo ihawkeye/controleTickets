@@ -1,8 +1,11 @@
 $(document).ready(function(){
-    
 
-    var arrayTickets = []
+    var storedTickets = JSON.parse(sessionStorage.getItem('arrayTickets'));
+    
+    var arrayTickets = storedTickets ? storedTickets : [];
+
     console.log(arrayTickets);
+
     $('#abrirTicketBtn').click(() => { 
         
          var serial = $('#inputSerial').val();
@@ -18,6 +21,10 @@ $(document).ready(function(){
          var vinicius = $('#vinicius').val();
          var ocorrencia = $('#inputTextOcorrencia').val();
          var observacoes = $('#inputTextObservacoes').val();
+
+         // Obter a data atual
+        var dataAtual = new Date();
+        var dataFormatada = `${dataAtual.getDate()}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`;
 
          // limpando marcação dos campos 
         $('.required').css({"border": "none"});
@@ -48,6 +55,8 @@ $(document).ready(function(){
             Categoria: categoria,
             Versao: versao,
             Status: status,
+            DataUltimaInteracao: dataFormatada,
+            DataOcorrencia: dataFormatada,
             DataUltimoTeste: dateUltimoTeste,
             Vinicius: vinicius,
             Ocorrencia: ocorrencia,
@@ -58,10 +67,15 @@ $(document).ready(function(){
         console.log(Ticket);
         console.log(arrayTickets);
         alert('Ticket criado com sucesso!');
+        
+        $('#inputSerial, #inputCliente, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacoes').val('');
 
         arrayTickets.forEach(function(Ticket, index){
             console.log(Ticket);
         });
+
+        sessionStorage.setItem('arrayTickets', JSON.stringify(arrayTickets));
+
     } else {
         // alerta de campo não preenchido
         alert('Por favor, preencha todos os campos destacados.');
