@@ -1,24 +1,24 @@
 package com.example.springboot.dtos;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+//import jakarta.validation.constraints.NotBlank;
+//import jakarta.validation.constraints.NotNull;
 import java.sql.Date;
 
 
-public record TicketRecordDto( @NotBlank String name,
-                               @NotNull Integer idTicket,
-                               @NotNull Integer idCliente,
-                               @NotBlank String tipo,
-                               @NotBlank String prioridade,
-                               @NotNull Integer numero,
-                               @NotNull Integer sac,
-                               @NotNull Date dataOcorrencia,
-                               @NotNull Date dataUltimaInteracao,
-                               @NotBlank String categoria,
-                               @NotNull Date dataUltimoTeste,
-                               @NotBlank String ultimaVersao,
-                               @NotBlank String status,
-                               @NotNull boolean vinicius,
-                               @NotBlank String ocorrencia,
-                               @NotBlank String observacao)
+public record TicketRecordDto(  String name,
+                                Integer idTicket,
+                                Integer idCliente,
+                                String tipo,
+                                String prioridade,
+                                Integer numero,
+                                Integer sac,
+                                Date dataOcorrencia,
+                                Date dataUltimaInteracao,
+                                String categoria,
+                                Date dataUltimoTeste,
+                                String ultimaVersao,
+                                String status,
+                                boolean vinicius,
+                                String ocorrencia,
+                                String observacoes)
 {}

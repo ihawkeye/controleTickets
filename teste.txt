@@ -18,5 +18,8 @@ só tacar no postman no /Ticket
     "status": "Em andamento",
     "vinicius": true,
     "ocorrencia": "bug no terminal",
-    "observacao": "lorem ipsum"
+    "observasoes": "lorem ipsum"
 }
+
+
+spring.jpa.hibernate.ddl-auto=update

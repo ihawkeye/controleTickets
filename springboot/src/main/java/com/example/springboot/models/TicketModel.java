@@ -40,7 +40,7 @@ public class TicketModel implements Serializable {
     private String status;
     private boolean vinicius;
     private String ocorrencia;
-    private String observacao;
+    private String observacoes;
 
     //get set
 
@@ -149,7 +149,7 @@ public class TicketModel implements Serializable {
         this.status = status;
     }
 
-    public boolean isVinicius() {
+    public boolean getVinicius() {
         return vinicius;
     }
 
@@ -165,12 +165,18 @@ public class TicketModel implements Serializable {
         this.ocorrencia = ocorrencia;
     }
 
-    public String getObservacao() {
-        return observacao;
+
+
+
+    public String getObservacoes() {
+        return this.observacoes;
     }
 
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
+    public void setObservacoes(String observacoes) {
+        this.observacoes = observacoes;
     }
+
+
+
 }
 
