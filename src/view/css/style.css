@@ -185,18 +185,55 @@ body {
 #btn-interact:hover {
   transform: scale(1.2);
 }
+
+.modal-header-itens {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date {
+  text-align: center;
+  display: flex;
+  align-items: center !important;
+  justify-content: center;
+  /* flex-direction: row !important; */
+  width: 40% !important;
+}
+
+#labelDateUltimaInteracao {
+  margin-left: 25%;
+}
+
+#labelDateOcorrencia, #labelDateUltimaInteracao {
+  margin-top: 1.5%;
+  margin-right: 2%;
+}
+
+#inputDateOcorrencia, #inputDateUltimaInteracao {
+  width: 40% !important;
+  text-align: center;
+}
+
+
 .modal-body {
   display: flex;
   flex-direction: column;
-  background-color: #f2f3f5;
+  background-color: #f7f7f7;
   color: #1a1919;
   justify-content:space-around !important;
 }
 
-.modal-body span {
-  color: rgb(19, 19, 19);
+.modal-dialog {
+  /* height: 60%; */
+  max-width: none;
+  width: 70% !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
-
 
 .modal-content {
   background-color: #0a62d4;
@@ -205,8 +242,66 @@ body {
   width: 100%;
 }
 
+.modal-body {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content:space-around important;
+}
+
+.modal-body span {
+  color: rgb(19, 19, 19);
+}
+
+.RowForm {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.data {
+  width: 18% !important;
+}
+
+#inputUltimoTeste {
+  text-align: center !important;
+}
+
+.switch {
+  padding: 1%;
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.form-switch {
+  padding-left: 0% !important;
+  justify-content: space-between !important;
+}
+
+#vinicius {
+  /* width: 15%; */
+  margin-left: 0.5%;
+}
+
+
+.btnContainerObsOcr {
+  margin-top: 1%;
+  display: flex;
+  width: 100%;
+  align-items:normal !important;
+  justify-content:space-around !important;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
 .btn-success {
-  background-color: #e1e5eb;
+  background-color: #ededee;
   color: #007bff;
 }
 
@@ -223,8 +318,4 @@ body {
   background-color: rgb(207, 25, 25);
 }
 
-.modal-dialog {
-  height: 60%;
-  max-width: none;
-  width: 50% !important;
-}
+
