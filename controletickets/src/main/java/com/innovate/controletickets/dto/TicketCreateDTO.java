@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.sql.Date;
+import java.util.UUID;
 
 public class TicketCreateDTO {
 
@@ -16,7 +17,6 @@ public class TicketCreateDTO {
     @JoinColumn(name = "idcliente")
     private Cliente cliente;
 
-    // Pensar se é melhor passar o nome ou o próprio objeto
     @ManyToOne
     @JoinColumn(name = "idtecnico")
     private Tecnico tecnico;
@@ -25,11 +25,9 @@ public class TicketCreateDTO {
 
     private String prioridade;
 
-    @NotBlank
-    @Size(min = 6, max = 6, message = "Precisa ter 6 caracteres")
     private String numero;
 
-    private int sac;
+    private String sac;
 
     private Date dataOcorrencia;
 
@@ -52,7 +50,10 @@ public class TicketCreateDTO {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
-    // Getters and Setters
+    public TicketCreateDTO() {
+    }
+
+// Getters and Setters
 
     public Cliente getCliente() {
         return cliente;
@@ -94,11 +95,11 @@ public class TicketCreateDTO {
         this.numero = numero;
     }
 
-    public int getSac() {
+    public String getSac() {
         return sac;
     }
 
-    public void setSac(int sac) {
+    public void setSac(String sac) {
         this.sac = sac;
     }
 

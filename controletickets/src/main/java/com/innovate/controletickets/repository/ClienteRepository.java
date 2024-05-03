@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ClienteRepository extends JpaRepository<Cliente, UUID> {
-    Optional<Cliente> findBySerial(String serial);
-    Optional<Cliente> findByNome(String nome);
+    Cliente findBySerial(String serial);
+    Cliente findByNome(String nome);
     List<Cliente> findByNomeContaining(String nome);
 }

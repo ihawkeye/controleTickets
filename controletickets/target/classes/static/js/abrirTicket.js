@@ -18,23 +18,19 @@ $(document).ready(function(){
 
     $('#abrirTicketBtn').click(() => {
 
-         var serial = $('#inputSerial').val();
-         var nome = $('#inputNome').val();
-         var tecnico = $('#inputTecnico').val();
-         var ticket = $('#inputTicket').val();
-         var tipo = $('#inputTipo').val();
-         var prioridade = $('#inputPrioridade').val();
-         var categoria = $('#inputCategoria').val();
-         var versao = $('#inputVersao').val();
-         var status =  $('#inputStatus').val();
-         var dateUltimoTeste = $('#inputUltimoTeste').val();
-         var vinicius = $('#vinicius').val();
-         var ocorrencia = $('#inputTextOcorrencia').val();
-         var observacoes = $('#inputTextObservacoes').val();
-
-         // pega a data atual (teste)
-        var dataAtual = new Date();
-        var dataFormatada = `${dataAtual.getDate()}/${dataAtual.getMonth() + 1}/${dataAtual.getFullYear()}`;
+        var serial = $('#inputSerial').val();
+        var nome_cliente = $('#inputNome').val();
+        var nome_tecnico = $('#inputTecnico').val();
+        var numero = $('#inputTicket').val();
+        var tipo = $('#inputTipo').val();
+        var prioridade = $('#inputPrioridade').val();
+        var categoria = $('#inputCategoria').val();
+        var ultimaVersao = $('#inputVersao').val();
+        var status =  $('#inputStatus').val();
+        var dataUltimoTeste = $('#inputUltimoTeste').val();
+        var vinicius = $('#vinicius').val();
+        var ocorrencia = $('#inputTextOcorrencia').val();
+        var observacao = $('#inputTextObservacao').val();
 
          // limpando marcação dos campos 
         $('.required').css({"border": "none"});
@@ -55,32 +51,46 @@ $(document).ready(function(){
 
        if (camposFaltando.length === 0) {
 
-        // Criando objeto Cliente para criar a entidade cliente.
-
-        var clienteData = {
-            serial: serial,
-            nome: nome
+        // na esquerda: nome do campo no BD
+        var formData = {
+            cliente: {
+                serial: serial,
+                nome: nome_cliente
+            },
+            tecnico: {
+                nome: nome_tecnico
+            },
+            numero: numero,
+            tipo: tipo,
+            prioridade: prioridade,
+            categoria: categoria,
+            ultimaVersao: ultimaVersao,
+            status: status,
+            dataUltimoTeste: dataUltimoTeste,
+            vinicius: vinicius,
+            ocorrencia: ocorrencia,
+            observacao: observacao
         };
 
+        console.log(formData);
+
         $.ajax({
-            url: '/cliente',
+            url: '/ticket',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(clienteData),
+            data: JSON.stringify(formData),
             success: function(response) {
-                console.log('Cliente: ', response);
-                // pensar em como retornar o id do cliente necessário para criar o ticket.
+                console.log('Ticket criado com sucesso', response);
             },
             error: function(xhr, status, error) {
-                console.error('Erro ao criar o cliente:', error);
+                console.error('Erro ao criar ticket', error)
             }
         });
 
         alert('Ticket criado com sucesso!');
 
         // limpa os campos de input
-        $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacoes').val('');
-
+        $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
 
     } else {
         // alerta de campo não preenchido

@@ -1,9 +1,13 @@
 package com.innovate.controletickets.services;
 
+import com.innovate.controletickets.dto.TicketCreateDTO;
+import com.innovate.controletickets.dto.TicketMapper;
 import com.innovate.controletickets.exception.TicketNotFoundException;
 import com.innovate.controletickets.model.Cliente;
+import com.innovate.controletickets.model.Tecnico;
 import com.innovate.controletickets.model.Ticket;
 import com.innovate.controletickets.repository.ClienteRepository;
+import com.innovate.controletickets.repository.TecnicoRepository;
 import com.innovate.controletickets.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +24,32 @@ public class TicketService {
     private TicketRepository ticketRepository;
 
     @Autowired
+    private TicketMapper ticketMapper;
+
+    @Autowired
     private ClienteRepository clienteRepository;
 
-    public Ticket gravar(Ticket ticket){
+    @Autowired
+    private ClienteService clienteService;
+
+    @Autowired
+    private TecnicoRepository tecnicoRepository;
+
+    public Ticket gravarTicket(TicketCreateDTO ticketCreateDTO){
+
+        Cliente cliente = clienteRepository.findBySerial(ticketCreateDTO.getCliente().getSerial());
+        if (cliente == null) {
+            cliente = clienteService.gravar(ticketCreateDTO.getCliente());
+        }
+
+        Tecnico tecnico = tecnicoRepository.findByNome(ticketCreateDTO.getTecnico().getNome());
+
+        Ticket ticket = ticketMapper.toEntity(ticketCreateDTO);
+
+        ticket.setCliente(cliente);
+        ticket.setTecnico(tecnico);
+        ticket.setUltimaVersao(ticketCreateDTO.getUltimaVersao());
+
         return ticketRepository.save(ticket);
     }
 
@@ -52,8 +79,7 @@ public class TicketService {
     //Retorna mais de um ticket. (Preciso instanciar a classe cliente) (pensar se é melhor passar o obj ou o atr)!
     public List<Ticket> buscarTicketPorSerialCliente(String serial) throws TicketNotFoundException {
         // busca o cliente pelo número do serial
-        Cliente cliente = clienteRepository.findBySerial(serial)
-                .orElseThrow(() -> new TicketNotFoundException("Cliente com serial: " + serial + " não foi encontrado"));
+        Cliente cliente = clienteRepository.findBySerial(serial);
         // busca os tickets associados a esse cliente
         return ticketRepository.findByCliente(cliente);
     }

@@ -1,6 +1,7 @@
 package com.innovate.controletickets.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.sql.Date;
 import java.util.UUID;
@@ -42,6 +43,7 @@ public class Ticket {
 
     private Boolean vinicius;
 
+    @NotBlank
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String ocorrencia;
 

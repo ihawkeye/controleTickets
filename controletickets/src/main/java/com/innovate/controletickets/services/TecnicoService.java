@@ -25,13 +25,12 @@ public class TecnicoService {
         return tecnicoRepository.findAll();
     }
 
-    public Optional<Tecnico> buscarPorNome(String nome) {
+    public Tecnico buscarPorNome(String nome) {
         return tecnicoRepository.findByNome(nome);
     }
 
     public UUID buscarIdTecnicoPorNome(String nomeTecnico) throws TecnicoNotFoundException {
-        Tecnico tecnico = tecnicoRepository.findByNome(nomeTecnico)
-                .orElseThrow(() -> new TecnicoNotFoundException("Técnico com nome '" + nomeTecnico + "' não encontrado"));
+        Tecnico tecnico = tecnicoRepository.findByNome(nomeTecnico);
         return tecnico.getId();
     }
 

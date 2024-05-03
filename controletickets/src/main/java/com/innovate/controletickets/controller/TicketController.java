@@ -27,11 +27,14 @@ public class TicketController {
     private TicketMapper ticketMapper;
 
     @PostMapping
-    public ResponseEntity<TicketResponseDTO> salvar(@RequestBody TicketCreateDTO ticketCreateDTO){
-        Ticket ticket = ticketMapper.toEntity(ticketCreateDTO);
-        Ticket ticketGravado = ticketService.gravar(ticket);
-        TicketResponseDTO ticketResponseDTO = ticketMapper.toDTO(ticketGravado);
-        return ResponseEntity.status(HttpStatus.CREATED).body(ticketResponseDTO);
+    public ResponseEntity<?> salvar(@RequestBody TicketCreateDTO ticketCreateDTO){
+        try{
+            Ticket ticketGravado = ticketService.gravarTicket(ticketCreateDTO);
+            TicketResponseDTO ticketResponseDTO = ticketMapper.toDTO(ticketGravado);
+            return ResponseEntity.status(HttpStatus.CREATED).body(ticketResponseDTO);
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar ticket");
+        }
     }
 
     @GetMapping

@@ -2,15 +2,16 @@ package com.innovate.controletickets.dto;
 
 import com.innovate.controletickets.model.Cliente;
 import com.innovate.controletickets.model.Tecnico;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.sql.Date;
 import java.util.UUID;
 
 public class TicketResponseDTO {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @ManyToOne
@@ -27,7 +28,7 @@ public class TicketResponseDTO {
 
     private String numero;
 
-    private int sac;
+    private String sac;
 
     private Date dataOcorrencia;
 
@@ -43,14 +44,17 @@ public class TicketResponseDTO {
 
     private Boolean vinicius;
 
+    @NotBlank
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String ocorrencia;
 
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
-    // Getters and Setters
+    public TicketResponseDTO() {
+    }
 
+    // Getters and Setters
     public UUID getId() {
         return id;
     }
@@ -99,11 +103,11 @@ public class TicketResponseDTO {
         this.numero = numero;
     }
 
-    public int getSac() {
+    public String getSac() {
         return sac;
     }
 
-    public void setSac(int sac) {
+    public void setSac(String sac) {
         this.sac = sac;
     }
 

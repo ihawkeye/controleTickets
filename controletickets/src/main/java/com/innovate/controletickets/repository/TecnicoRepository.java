@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface TecnicoRepository extends JpaRepository<Tecnico, UUID> {
-    Optional<Tecnico> findByNome(String nome);
+    Tecnico findByNome(String nome);
 }

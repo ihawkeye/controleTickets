@@ -17,9 +17,9 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     public Cliente gravar(Cliente clienteDTO) {
-        Optional<Cliente> clienteExistente = clienteRepository.findBySerial(clienteDTO.getSerial());
-        if (clienteExistente.isPresent()) {
-            return clienteExistente.get();
+        Cliente clienteExistente = clienteRepository.findBySerial(clienteDTO.getSerial());
+        if (clienteExistente != null) {
+            return clienteExistente;
         } else {
             Cliente novoCliente = new Cliente(); // Renomeando a variável aqui
             novoCliente.setSerial(clienteDTO.getSerial());
@@ -42,18 +42,18 @@ public class ClienteService {
     }
 
     public Cliente buscarClientePorSerial(String serial) throws ClienteNotFoundException {
-        Optional<Cliente> opt = clienteRepository.findBySerial(serial);
-        if (opt.isPresent()){
-            return opt.get();
+        Cliente cliente = clienteRepository.findBySerial(serial);
+        if (cliente != null){
+            return cliente;
         } else {
             throw new ClienteNotFoundException("Cliente com serial: " + serial + " não encontrado");
         }
     }
 
     public Cliente buscarClientePorNome(String nome) throws ClienteNotFoundException{
-        Optional<Cliente> opt= clienteRepository.findByNome(nome);
-        if (opt.isPresent()){
-            return opt.get();
+        Cliente cliente= clienteRepository.findByNome(nome);
+        if (cliente != null){
+            return cliente;
         } else {
             throw new ClienteNotFoundException(null);
         }

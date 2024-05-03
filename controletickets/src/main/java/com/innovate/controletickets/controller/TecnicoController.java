@@ -39,9 +39,9 @@ public class TecnicoController {
 
     @GetMapping("/{nome}")
     public ResponseEntity<?> buscarPorNome(@PathVariable String nome) {
-        Optional<Tecnico> tecnico = tecnicoService.buscarPorNome(nome);
-        if (tecnico.isPresent()) {
-            return ResponseEntity.ok(tecnico.get());
+        Tecnico tecnico = tecnicoService.buscarPorNome(nome);
+        if (tecnico != null) {
+            return ResponseEntity.ok(tecnico);
         } else {
             return ResponseEntity.notFound().build();
         }
