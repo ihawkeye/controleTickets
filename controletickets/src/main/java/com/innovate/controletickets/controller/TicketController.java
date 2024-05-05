@@ -4,15 +4,15 @@ import com.innovate.controletickets.dto.TicketCreateDTO;
 import com.innovate.controletickets.dto.TicketMapper;
 import com.innovate.controletickets.dto.TicketResponseDTO;
 import com.innovate.controletickets.exception.TicketNotFoundException;
-import com.innovate.controletickets.model.Tecnico;
 import com.innovate.controletickets.model.Ticket;
 import com.innovate.controletickets.services.TicketService;
-import com.innovate.controletickets.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -45,7 +45,7 @@ public class TicketController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> buscarUm(@PathVariable (value = "id") UUID id){
+    public ResponseEntity<?> buscarTicketPorId(@PathVariable (value = "id") UUID id){
 
         try{
             Ticket ticketGravado = ticketService.buscarTicketPorId(id);
@@ -56,7 +56,7 @@ public class TicketController {
         }
     }
 
-    @GetMapping("/{serial}")
+    @GetMapping("/serial/{serial}")
     public ResponseEntity<Object> buscarTicketsPorSerialCliente(@PathVariable String serial) {
         try {
             List<Ticket> tickets = ticketService.buscarTicketPorSerialCliente(serial);
@@ -88,6 +88,17 @@ public class TicketController {
             return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTO);
         } catch (TicketNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}/interact")
+    public ResponseEntity<TicketResponseDTO> atualizarUltimaInteracao(@PathVariable(value = "id") UUID id) {
+        try {
+            Date dataAtual = Date.valueOf(LocalDate.now());
+            TicketResponseDTO ticketAtualizado = ticketService.atualizarUltimaInteracao(id, dataAtual);
+            return ResponseEntity.ok(ticketAtualizado);
+        } catch (TicketNotFoundException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 

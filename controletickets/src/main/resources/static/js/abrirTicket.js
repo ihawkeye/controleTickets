@@ -32,6 +32,9 @@ $(document).ready(function(){
         var ocorrencia = $('#inputTextOcorrencia').val();
         var observacao = $('#inputTextObservacao').val();
 
+        var dataAtual = new Date();
+
+
          // limpando marcação dos campos 
         $('.required').css({"border": "none"});
 
@@ -66,6 +69,8 @@ $(document).ready(function(){
             categoria: categoria,
             ultimaVersao: ultimaVersao,
             status: status,
+            dataOcorrencia: dataAtual,
+            dataUltimaInteracao: dataAtual,
             dataUltimoTeste: dataUltimoTeste,
             vinicius: vinicius,
             ocorrencia: ocorrencia,
@@ -83,7 +88,7 @@ $(document).ready(function(){
                 console.log('Ticket criado com sucesso', response);
             },
             error: function(xhr, status, error) {
-                console.error('Erro ao criar ticket', error)
+                console.error('Erro ao criar ticket', error, xhr, status)
             }
         });
 

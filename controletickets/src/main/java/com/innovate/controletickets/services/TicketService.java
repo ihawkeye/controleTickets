@@ -2,6 +2,7 @@ package com.innovate.controletickets.services;
 
 import com.innovate.controletickets.dto.TicketCreateDTO;
 import com.innovate.controletickets.dto.TicketMapper;
+import com.innovate.controletickets.dto.TicketResponseDTO;
 import com.innovate.controletickets.exception.TicketNotFoundException;
 import com.innovate.controletickets.model.Cliente;
 import com.innovate.controletickets.model.Tecnico;
@@ -12,10 +13,8 @@ import com.innovate.controletickets.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.sql.Date;
+import java.util.*;
 
 @Service
 public class TicketService {
@@ -58,9 +57,9 @@ public class TicketService {
     }
 
     public Ticket buscarTicketPorId(UUID id) throws TicketNotFoundException{
-        Optional<Ticket> opt = ticketRepository.findById(id);
-        if (opt.isPresent()){
-            return opt.get();
+        Optional<Ticket> ticket = ticketRepository.findById(id);
+        if (ticket.isPresent()){
+            return ticket.get();
         } else {
             throw new TicketNotFoundException("Ticket com id: " + id + " não foi encontrado");
         }
@@ -112,6 +111,12 @@ public class TicketService {
         return ticketsEncontrados;
     }
 
+    public TicketResponseDTO atualizarUltimaInteracao(UUID id, Date dataAtual) throws TicketNotFoundException {
+        Ticket ticketGravado = buscarTicketPorId(id);
+        ticketGravado.setDataUltimaInteracao(dataAtual);
+        Ticket ticketAtualizado = ticketRepository.save(ticketGravado);
+        return ticketMapper.toDTO(ticketAtualizado);
+    }
 
     public Ticket alterarTicket(UUID id, Ticket ticket) throws TicketNotFoundException{
         Ticket ticketGravado = buscarTicketPorId(id);
