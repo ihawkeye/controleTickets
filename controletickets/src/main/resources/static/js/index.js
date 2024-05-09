@@ -114,6 +114,37 @@ $(document).ready(function() {
         $('#vinicius').prop('checked', ticket.vinicius);
         $('#inputTextOcorrencia').val(ticket.ocorrencia);
         $('#inputTextObservacoes').val(ticket.observacao);
+
+        $('#btnAtualiza').off('click').on('click', function() {
+            salvarAlteracoes(ticket.id);
+        });
     }
-  
+
+    function salvarAlteracoes(ticketId) {
+        var dadosAtualizados = {
+            ultimaVersao: $('#inputVersao').val(),
+            status: $('#inputStatus').val(),
+            dataUltimoTeste: $('#inputUltimoTeste').val(),
+            vinicius: $('#vinicius').prop('checked'),
+            ocorrencia: $('#inputTextOcorrencia').val(),
+            observacao: $('#inputTextObservacoes').val()
+        };
+
+        $.ajax({
+            url: '/ticket/' + ticketId,
+            type: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(dadosAtualizados),
+            success: function(response) {
+                console.log("Sucesso ao atualizar o ticket:", response);
+                carregarTickets();
+                $('#modal').modal('hide');
+                alert('Alterações salvas com sucesso!');
+            },
+            error: function(xhr, status, error) {
+                console.error("Erro ao atualizar o ticket:", error, status, xhr);
+            }
+        });
+    }
+    
 });

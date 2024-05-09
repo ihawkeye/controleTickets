@@ -118,22 +118,30 @@ public class TicketService {
         return ticketMapper.toDTO(ticketAtualizado);
     }
 
-    public Ticket alterarTicket(UUID id, Ticket ticket) throws TicketNotFoundException{
+    public TicketResponseDTO alterarTicket(UUID id, Map<String, Object> dadosAtualizados) throws TicketNotFoundException {
         Ticket ticketGravado = buscarTicketPorId(id);
-        ticketGravado.setTipo(ticket.getTipo());
-        ticketGravado.setPrioridade(ticket.getPrioridade());
-        ticketGravado.setNumero(ticket.getNumero());
-        ticketGravado.setSac(ticket.getSac());
-        ticketGravado.setDataOcorrencia(ticket.getDataOcorrencia());
-        ticketGravado.setDataUltimaInteracao(ticket.getDataUltimaInteracao());
-        ticketGravado.setCategoria(ticket.getCategoria());
-        ticketGravado.setDataUltimoTeste(ticket.getDataUltimoTeste());
-        ticketGravado.setUltimaVersao(ticket.getUltimaVersao());
-        ticketGravado.setStatus(ticket.getStatus());
-        ticketGravado.setVinicius(ticket.getVinicius());
-        ticketGravado.setOcorrencia(ticket.getOcorrencia());
-        ticketGravado.setObservacao(ticket.getObservacao());
-        return ticketRepository.save(ticketGravado);
+
+        if (dadosAtualizados.containsKey("ultimaVersao")) {
+            ticketGravado.setUltimaVersao((String) dadosAtualizados.get("ultimaVersao"));
+        }
+        if (dadosAtualizados.containsKey("status")) {
+            ticketGravado.setStatus((String) dadosAtualizados.get("status"));
+        }
+        if (dadosAtualizados.containsKey("dataUltimoTeste")) {
+            ticketGravado.setDataUltimoTeste((Date) dadosAtualizados.get("dataUltimoTeste"));
+        }
+        if (dadosAtualizados.containsKey("vinicius")) {
+            ticketGravado.setVinicius((Boolean) dadosAtualizados.get("vinicius"));
+        }
+        if (dadosAtualizados.containsKey("ocorrencia")) {
+            ticketGravado.setOcorrencia((String) dadosAtualizados.get("ocorrencia"));
+        }
+        if (dadosAtualizados.containsKey("observacao")) {
+            ticketGravado.setObservacao((String) dadosAtualizados.get("observacao"));
+        }
+
+        Ticket ticketAtualizado = ticketRepository.save(ticketGravado);
+        return ticketMapper.toDTO(ticketAtualizado);
     }
 
     public void apagarTicket(UUID id) throws TicketNotFoundException{

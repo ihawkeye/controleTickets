@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -79,13 +80,10 @@ public class TicketController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> alterar(@PathVariable(value = "id")UUID id, @RequestBody TicketCreateDTO ticketCreateDTO){
-
+    public ResponseEntity<?> alterar(@PathVariable(value = "id") UUID id, @RequestBody Map<String, Object> dadosAtualizados) {
         try {
-            Ticket ticket = ticketMapper.toEntity(ticketCreateDTO);
-            Ticket ticketGravado = ticketService.alterarTicket(id, ticket);
-            TicketResponseDTO ticketResponseDTO = ticketMapper.toDTO(ticketGravado);
-            return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTO);
+            TicketResponseDTO ticketAtualizado = ticketService.alterarTicket(id, dadosAtualizados);
+            return ResponseEntity.status(HttpStatus.OK).body(ticketAtualizado);
         } catch (TicketNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
