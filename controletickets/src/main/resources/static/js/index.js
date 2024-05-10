@@ -3,7 +3,7 @@ $(document).ready(function() {
     function carregarTickets () {
         $.ajax({
             type: "GET",
-            url: "/ticket",
+            url: "/ticket/prioridades",
             contentType: 'application/json',
             success: function (response) {
                 $('tbody').empty();
@@ -14,7 +14,7 @@ $(document).ready(function() {
                 });
             },
             error: function(xhr, status, error){
-                console.error("Erro ao buscar os ticket: ", error);
+                console.error("Erro ao buscar os tickets: ", error);
             }
         });
     }
@@ -57,27 +57,6 @@ $(document).ready(function() {
         var ticketId = $(this).closest('tr').data('id'); // Obtendo o ID do ticket
         // Função para buscar os dados do ticket com o ID especificado e preencher o modal
         buscarTicketExibirModal(ticketId);
-    });
-
-    $('tbody').on('click', '#btn-interact', function() {
-        var ticketId = $(this).closest('tr').data('id');
-        console.log(ticketId);
-        var dataAtual = new Date();
-    
-        $.ajax({
-            url: '/ticket/' + ticketId + '/interact',
-            type: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify({ dataAtual: dataAtual.toISOString() }),
-            success: function(response) {
-                console.log("Sucesso ao interagir com o ticket:", response);
-                carregarTickets();
-                alert('Interação concluída!');
-            },
-            error: function(xhr, status, error) {
-                console.error("Erro ao interagir com o ticket:", error);
-            }
-        });
     });
 
 

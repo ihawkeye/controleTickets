@@ -45,6 +45,13 @@ public class TicketController {
         return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTOs);
     }
 
+    @GetMapping("/prioridades")
+    public ResponseEntity<List<TicketResponseDTO>> prioridades(){
+        List<Ticket> tickets = ticketService.buscarPrioridades();
+        List<TicketResponseDTO> ticketResponseDTOs = ticketMapper.toDTO(tickets);
+        return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTOs);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarTicketPorId(@PathVariable (value = "id") UUID id){
 

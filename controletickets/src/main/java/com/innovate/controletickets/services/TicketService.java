@@ -11,10 +11,14 @@ import com.innovate.controletickets.repository.ClienteRepository;
 import com.innovate.controletickets.repository.TecnicoRepository;
 import com.innovate.controletickets.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class TicketService {
@@ -53,7 +57,8 @@ public class TicketService {
     }
 
     public List<Ticket> buscarTodos(){
-        return ticketRepository.findAll();
+        Sort sortByDataOcorrencia = Sort.by("dataOcorrencia").ascending();
+        return ticketRepository.findAll(sortByDataOcorrencia);
     }
 
     public Ticket buscarTicketPorId(UUID id) throws TicketNotFoundException{
@@ -63,6 +68,11 @@ public class TicketService {
         } else {
             throw new TicketNotFoundException("Ticket com id: " + id + " não foi encontrado");
         }
+    }
+
+    public List<Ticket> buscarPrioridades() {
+        LocalDate dataLimite = LocalDate.now().minusDays(7); // Data limite é há 7 dias atrás
+        return ticketRepository.findPrioridades(dataLimite);
     }
 
     //Retorna apenas 1 ticket
@@ -128,7 +138,15 @@ public class TicketService {
             ticketGravado.setStatus((String) dadosAtualizados.get("status"));
         }
         if (dadosAtualizados.containsKey("dataUltimoTeste")) {
-            ticketGravado.setDataUltimoTeste((Date) dadosAtualizados.get("dataUltimoTeste"));
+            String dataString = (String) dadosAtualizados.get("dataUltimoTeste");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                java.util.Date parsedDate = sdf.parse(dataString);
+                java.sql.Date sqlDate = new java.sql.Date(parsedDate.getTime());
+                ticketGravado.setDataUltimoTeste(sqlDate);
+            } catch (Exception e) {
+                return new TicketResponseDTO(); // qualquer coisa volta o constructor vazio
+            }
         }
         if (dadosAtualizados.containsKey("vinicius")) {
             ticketGravado.setVinicius((Boolean) dadosAtualizados.get("vinicius"));
