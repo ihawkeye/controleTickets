@@ -15,7 +15,7 @@
 <body>
    <nav class="nav">
       <a class="navbar-brand" href="index.html">
-         <img src="/assets/img/logotipo-03.png" height="35" alt="Logotipo" />
+         <img src="./assets/img/logotipo-03.png" height="35" alt="Logotipo" />
       </a>
       <div class="nav-container">
          <a href="index.html" class="itemNav">Home</a>
@@ -92,23 +92,6 @@
                   </td>
                </tr>
 
-               <tr class="table-row">
-                  <td class="text-center">013388</td>
-                  <td class="text-center">Innovate Automação</td>
-                  <td class="text-center">0000002</td>
-                  <td class="text-center">03/04/2024</td>
-                  <td class="text-center">10/04/2024</td>
-                  <td>
-                     <button class="btn" id="btn-edit" type="button">
-                        <i class="fa fa-edit"></i>
-                     </button>
-                  </td>
-                  <td>
-                     <button class="btn" id="btn-interact" type="button">
-                        <i class="fa-solid fa-bolt"></i>
-                     </button>
-                  </td>
-               </tr>
             </tbody>
          </table>
       </div>
@@ -287,7 +270,7 @@
                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                   Fechar
                </button>
-               <button type="button" class="btn btn-success">
+               <button type="button" class="btn btn-success" id="btnAtualiza">
                   Salvar Mudanças
                </button>
             </div>
@@ -308,10 +291,13 @@
       });
    </script>
 
-   <script src="./js/index.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
+   <script src="./js/attUltimaInteracao.js"></script>
+   <script src="./js/index.js"></script>
+   
 </body>
 
 </html>

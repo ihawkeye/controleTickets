@@ -4,15 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #1c40b6;
-  height: 100vh; /* ocupa toda a altura da tela */
-  display: flex; /* define a largura total */
-  /* justify-content: center; centraliza horizontalmente */
-  align-items: center; /* centraliza verticalmente */
-  flex-direction: column;
-}
-
 .nav {
   margin-top: 0.5%;
   /* background-color: #1c40b6 !important; */
@@ -64,6 +55,29 @@ body {
   text-align: center;
   justify-content: center;
   justify-items: center;
+}
+
+body {
+	background: linear-gradient(-45deg, #0073F6, #0063D4, #0077ff, #0053B3);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+  display: flex; /* define a largura total */
+  /* justify-content: center; centraliza horizontalmente */
+  align-items: center; /* centraliza verticalmente */
+  flex-direction: column;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .content {
