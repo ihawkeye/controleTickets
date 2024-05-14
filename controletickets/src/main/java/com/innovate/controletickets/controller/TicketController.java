@@ -52,6 +52,20 @@ public class TicketController {
         return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTOs);
     }
 
+    @GetMapping("/naosolucionado")
+    public ResponseEntity<List<TicketResponseDTO>> naoSolucionado(){
+        List<Ticket> tickets = ticketService.buscarNaoSolucionado();
+        List<TicketResponseDTO> ticketResponseDTOs = ticketMapper.toDTO(tickets);
+        return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTOs);
+    }
+
+    @GetMapping("/solucionado")
+    public ResponseEntity<List<TicketResponseDTO>> solucionado(){
+        List<Ticket> tickets = ticketService.buscarSolucionado();
+        List<TicketResponseDTO> ticketResponseDTOs = ticketMapper.toDTO(tickets);
+        return ResponseEntity.status(HttpStatus.OK).body(ticketResponseDTOs);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarTicketPorId(@PathVariable (value = "id") UUID id){
 

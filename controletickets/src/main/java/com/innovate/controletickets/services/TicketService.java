@@ -75,6 +75,14 @@ public class TicketService {
         return ticketRepository.findPrioridades(dataLimite);
     }
 
+    public List<Ticket> buscarNaoSolucionado() {
+        return ticketRepository.findNaoSolucionado();
+    }
+
+    public List<Ticket> buscarSolucionado() {
+        return ticketRepository.findSolucionado();
+    }
+
     //Retorna apenas 1 ticket
     public Ticket buscarTicketPorNumero(String numero) throws TicketNotFoundException{
         Optional <Ticket> opt = ticketRepository.findByNumero(numero);

@@ -22,6 +22,12 @@ public interface TicketRepository extends JpaRepository<Ticket, UUID> {
     @Query("SELECT t FROM Ticket t WHERE t.status <> 'Resolvido' AND t.dataUltimaInteracao < :dataLimite ORDER BY t.dataOcorrencia")
     List<Ticket> findPrioridades(LocalDate dataLimite);
 
+    @Query("SELECT t FROM Ticket t WHERE t.status <> 'Resolvido' ORDER BY t.dataOcorrencia DESC")
+    List<Ticket> findNaoSolucionado();
+
+    @Query("SELECT t FROM Ticket t WHERE t.status = 'Resolvido' ORDER BY t.dataOcorrencia DESC")
+    List<Ticket> findSolucionado();
+
     @Query("SELECT t FROM Ticket t WHERE t.cliente.serial = :serial")
     List<Ticket> findByClienteSerial(@Param("serial") String serial);
 }

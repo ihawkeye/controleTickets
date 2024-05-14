@@ -3,19 +3,33 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
-    background-color: #1c40b6;
-    height: 100vh; /* ocupa toda a altura da tela */
+  	background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #0030b3);
+  	background-size: 400% 400%;
+  	animation: gradient 15s ease infinite;
+  	height: 100vh;
     display: flex; /* define a largura total */
     /* justify-content: center; centraliza horizontalmente */
     align-items: center; /* centraliza verticalmente */
     flex-direction: column;
   }
+
+  @keyframes gradient {
+  	0% {
+  		background-position: 0% 50%;
+  	}
+  	50% {
+  		background-position: 100% 50%;
+  	}
+  	100% {
+  		background-position: 0% 50%;
+  	}
+  }
   
   .nav {
     margin-top: 0.5%;
-    background-color: #1c40b6 !important;
+    /* background-color: #1c40b6 !important; */
     width: 100%;
     display: flex;
     /* margin-bottom: 0.5%; */
@@ -64,7 +78,7 @@
   }
 
 .content {
-    background-color: rgb(28, 64, 182) !important;
+    /* background-color: rgb(28, 64, 182) !important; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -80,7 +94,7 @@
 }
 
 .form-container {
-    background-color: rgb(28, 64, 182) !important;
+    /* background-color: rgb(28, 64, 182) !important; */
     background-image: url(../../assets/img/logotipo-03.png);
     background-size: 100% !important;
     background-repeat: no-repeat;
@@ -136,7 +150,7 @@ form {
 }
 
 .card {
-  background-color: #284dc5 !important;
+  background-color: #0077ff !important;
   padding: 2%;
 }
 
@@ -164,6 +178,10 @@ form {
     height: 100%;
     flex-direction: row !important;
     justify-content:space-around !important;
+}
+
+#inputTextOcorrencia {
+    margin-right: 2%;
 }
 
 .observacoes {
