@@ -123,6 +123,9 @@ body {
 }
 
 .filtro {
+  background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #5a86ff);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
   border: solid 2px !important;
   border-color: #000000 !important;
   border-radius: 10px;
@@ -155,6 +158,12 @@ body {
   color: white;
   border: none;
   border-radius: 20px;
+}
+
+#btn-filtro:hover {
+  background-color: white;
+  color: #0077ff;
+
 }
 
 .table-container {
