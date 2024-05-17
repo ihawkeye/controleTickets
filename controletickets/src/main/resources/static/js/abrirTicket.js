@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    // função pra te rum preview
+    // função pra ter um preview
     $('#imagem').on('change', function(){
         previewImages();
     });
