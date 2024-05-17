@@ -50,6 +50,16 @@ public class Ticket {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+    //teste de imagem
+    private String imagem;
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+    //teste
     public Ticket() {
     }
 

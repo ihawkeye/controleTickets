@@ -1,4 +1,30 @@
 $(document).ready(function(){
+    // função pra te rum preview
+    $('#imagem').on('change', function(){
+        previewImages();
+    });
+    function previewImages() {
+        const input = document.getElementById('imagem');
+        const preview = document.getElementById('imagePreview');
+        preview.innerHTML = '';
+
+        for (let i = 0; i < input.files.length; i++) {
+            const file = input.files[i];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.style.maxWidth = '1920px';
+                img.style.marginRight = '10px';
+                preview.appendChild(img);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+
+
 
     $.ajax({
             url: "/tecnicos",
