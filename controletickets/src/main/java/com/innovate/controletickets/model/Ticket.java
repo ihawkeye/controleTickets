@@ -50,15 +50,24 @@ public class Ticket {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
-    //teste de imagem
-    private String imagem;
-    public String getImagem() {
-        return imagem;
+    @Lob
+    //@Column(columnDefinition = "BYTEA") //  isto porquê quando rodava ele criava uma coluna oid no bd
+    private byte[] imagem;
+
+ 
+    public byte[] getImagem() {
+        return this.imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
+
+
+   public Boolean isVinicius() {
+        return this.vinicius;
+    }
+
     //teste
     public Ticket() {
     }

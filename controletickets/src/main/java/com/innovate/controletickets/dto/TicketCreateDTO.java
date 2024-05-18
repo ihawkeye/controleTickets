@@ -4,6 +4,7 @@ import com.innovate.controletickets.model.Cliente;
 import com.innovate.controletickets.model.Tecnico;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -50,8 +51,20 @@ public class TicketCreateDTO {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+    @Lob
+    //@Column(columnDefinition = "BYTEA")
+    private byte[] imagem;
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
     public TicketCreateDTO() {
     }
+
 
 // Getters and Setters
 

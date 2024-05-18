@@ -51,8 +51,21 @@ public class TicketResponseDTO {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+    @Lob
+    //@Column(columnDefinition = "BYTEA")
+    private byte[] imagem;
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
     public TicketResponseDTO() {
     }
+
 
     // Getters and Setters
     public UUID getId() {

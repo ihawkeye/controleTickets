@@ -136,6 +136,9 @@ public class TicketService {
         return ticketMapper.toDTO(ticketAtualizado);
     }
 
+    /*
+
+     */
     public TicketResponseDTO alterarTicket(UUID id, Map<String, Object> dadosAtualizados) throws TicketNotFoundException {
         Ticket ticketGravado = buscarTicketPorId(id);
 

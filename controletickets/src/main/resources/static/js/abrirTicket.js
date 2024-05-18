@@ -27,20 +27,20 @@ $(document).ready(function(){
 
 
     $.ajax({
-            url: "/tecnicos",
-            type: "GET",
-            success: function(response) {
-                // limpa o select pra não dar problema ao renderizar
-                $("#inputTecnico").empty();
-                // add os nomes dos técnicos ao select
-                response.forEach(function(tecnico) {
-                    $("#inputTecnico").append("<option>" + tecnico.nome + "</option>");
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error("Erro ao buscar os técnicos:", error);
-            }
-        });
+        url: "/tecnicos",
+        type: "GET",
+        success: function(response) {
+            // limpa o select pra não dar problema ao renderizar
+            $("#inputTecnico").empty();
+            // add os nomes dos técnicos ao select
+            response.forEach(function(tecnico) {
+                $("#inputTecnico").append("<option>" + tecnico.nome + "</option>");
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error("Erro ao buscar os técnicos:", error);
+        }
+    });
 
     $('#abrirTicketBtn').click(() => {
 
@@ -61,14 +61,14 @@ $(document).ready(function(){
         var dataAtual = new Date();
 
 
-         // limpando marcação dos campos 
+        // limpando marcação dos campos
         $('.required').css({"border": "none"});
 
         // ids dos campos obrigatórios
         var camposObrigatorios = ['inputSerial', 'inputNome', 'inputTicket', 'inputVersao', 'inputTextOcorrencia'];
 
 
-         // verifica e destaca os campos não preenchidos
+        // verifica e destaca os campos não preenchidos
         var camposFaltando = [];
         camposObrigatorios.forEach(function(id) {
             var valor = $('#' + id).val();
@@ -78,55 +78,55 @@ $(document).ready(function(){
             }
         });
 
-       if (camposFaltando.length === 0) {
+        if (camposFaltando.length === 0) {
 
-        // na esquerda: nome do campo no BD
-        var formData = {
-            cliente: {
-                serial: serial,
-                nome: nome_cliente
-            },
-            tecnico: {
-                nome: nome_tecnico
-            },
-            numero: numero,
-            tipo: tipo,
-            prioridade: prioridade,
-            categoria: categoria,
-            ultimaVersao: ultimaVersao,
-            status: status,
-            dataOcorrencia: dataAtual,
-            dataUltimaInteracao: dataAtual,
-            dataUltimoTeste: dataUltimoTeste,
-            vinicius: vinicius,
-            ocorrencia: ocorrencia,
-            observacao: observacao
-        };
+            // na esquerda: nome do campo no BD
+            var formData = {
+                cliente: {
+                    serial: serial,
+                    nome: nome_cliente
+                },
+                tecnico: {
+                    nome: nome_tecnico
+                },
+                numero: numero,
+                tipo: tipo,
+                prioridade: prioridade,
+                categoria: categoria,
+                ultimaVersao: ultimaVersao,
+                status: status,
+                dataOcorrencia: dataAtual,
+                dataUltimaInteracao: dataAtual,
+                dataUltimoTeste: dataUltimoTeste,
+                vinicius: vinicius,
+                ocorrencia: ocorrencia,
+                observacao: observacao
+            };
 
-        console.log(formData);
+            console.log(formData);
 
-        $.ajax({
-            url: '/ticket',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(formData),
-            success: function(response) {
-                console.log('Ticket criado com sucesso', response);
-            },
-            error: function(xhr, status, error) {
-                console.error('Erro ao criar ticket', error, xhr, status)
-            }
-        });
+            $.ajax({
+                url: '/ticket',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    console.log('Ticket criado com sucesso', response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erro ao criar ticket', error, xhr, status)
+                }
+            });
 
-        alert('Ticket criado com sucesso!');
+            alert('Ticket criado com sucesso!');
 
-        // limpa os campos de input
-        $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
+            // limpa os campos de input
+            $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
 
-    } else {
-        // alerta de campo não preenchido
-        alert('Por favor, preencha todos os campos destacados.');
-    }
+        } else {
+            // alerta de campo não preenchido
+            alert('Por favor, preencha todos os campos destacados.');
+        }
 
     });
 
