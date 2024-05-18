@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    // função pra ter um preview
+
+    /* // função pra ter um preview
     $('#imagem').on('change', function(){
         previewImages();
     });
@@ -15,16 +15,15 @@ $(document).ready(function(){
             reader.onload = function(e) {
                 const img = document.createElement('img');
                 img.src = e.target.result;
-                img.style.maxWidth = '1920px';
+                img.style.maxWidth = '200px';
                 img.style.marginRight = '10px';
                 preview.appendChild(img);
             };
 
             reader.readAsDataURL(file);
         }
-    }
-
-
+    } */
+    $(document).ready(function(){
 
     $.ajax({
         url: "/tecnicos",
@@ -57,6 +56,7 @@ $(document).ready(function(){
         var vinicius = $('#vinicius').val();
         var ocorrencia = $('#inputTextOcorrencia').val();
         var observacao = $('#inputTextObservacao').val();
+        var imagem = $('#inputImagem')[0].files[0];
 
         var dataAtual = new Date();
 
@@ -100,7 +100,8 @@ $(document).ready(function(){
                 dataUltimoTeste: dataUltimoTeste,
                 vinicius: vinicius,
                 ocorrencia: ocorrencia,
-                observacao: observacao
+                observacao: observacao,
+                imagem: imagem
             };
 
             console.log(formData);
@@ -121,7 +122,7 @@ $(document).ready(function(){
             alert('Ticket criado com sucesso!');
 
             // limpa os campos de input
-            $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
+            $('#inputImagem, #inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
 
         } else {
             // alerta de campo não preenchido

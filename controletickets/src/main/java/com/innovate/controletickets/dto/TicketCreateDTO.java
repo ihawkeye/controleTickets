@@ -51,8 +51,9 @@ public class TicketCreateDTO {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+
     @Lob
-    //@Column(columnDefinition = "BYTEA")
+    @Column(columnDefinition = "BYTEA")
     private byte[] imagem;
     public byte[] getImagem() {
         return imagem;

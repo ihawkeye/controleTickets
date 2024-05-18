@@ -44,6 +44,23 @@ public class TicketController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar ticket");
         }
     }
+     //Tinha tentado mudar o post para que ele pudesse enviar a imagem assim que apertasse o btn gravar,
+     // os get e put que tem abaixo provavelmente não vão mais existir se esse Post com imagem e dados do ticket funcionar
+   /*
+   @PostMapping("/ticket")
+    public ResponseEntity<?> salvarComImagem(@RequestPart("ticket") TicketCreateDTO ticketCreateDTO,
+                                         @RequestPart("file") MultipartFile file) {
+    try {
+        Ticket ticketGravado = ticketService.gravarTicket(ticketCreateDTO); ticketGravado.setImagem(file.getBytes());
+        ticketRepository.save(ticketGravado);
+        TicketResponseDTO ticketResponseDTO = ticketMapper.toDTO(ticketGravado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(ticketResponseDTO);
+    }  catch (Exception e) {
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao criar ticket: " + e.getMessage());
+    }
+} */
+
 
     @GetMapping
     public ResponseEntity<List<TicketResponseDTO>> buscarTodos() {
@@ -139,7 +156,7 @@ public class TicketController {
         }
     }
 
-    //aqui os upload das imagens e método get
+    /* *///aqui os upload das imagens e método get
     @PostMapping("/{id}/uploadImg")
     public ResponseEntity<?> uploadImg(@PathVariable UUID id, @RequestParam("file") MultipartFile file) throws IOException {
         Optional<Ticket> optionalTicket = ticketRepository.findById(id);
@@ -158,7 +175,6 @@ public class TicketController {
         }
 
     }
-    // ainda falta resolver o front, acredito que seja só linkar a imagem upada ao btn ticket
     @GetMapping("/{id}/getImg")
     public ResponseEntity<byte[]> getImagem(@PathVariable UUID id) {
         Optional<Ticket> optionalTicket = ticketRepository.findById(id);
