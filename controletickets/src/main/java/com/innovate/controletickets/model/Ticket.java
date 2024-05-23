@@ -50,20 +50,6 @@ public class Ticket {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
-    // Lob é usado para indicar que é um BLOB (aqueles grandes objetos binários)
-    @Lob
-    @Column(columnDefinition = "BYTEA") //  isto porquê quando rodava ele criava uma coluna oid no bd
-    private byte[] imagem;
-
- 
-    public byte[] getImagem() {
-        return this.imagem;
-    }
-
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
-    }
-
 
    public Boolean isVinicius() {
         return this.vinicius;

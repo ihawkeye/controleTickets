@@ -52,18 +52,6 @@ public class TicketResponseDTO {
     private String observacao;
 
 
-    @Lob
-    @Column(columnDefinition = "BYTEA")
-    private byte[] imagem;
-
-    public byte[] getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
-    }
-
     public TicketResponseDTO() {
     }
 

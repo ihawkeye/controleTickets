@@ -1,30 +1,5 @@
-
-    /* // função pra ter um preview
-    $('#imagem').on('change', function(){
-        previewImages();
-    });
-    function previewImages() {
-        const input = document.getElementById('imagem');
-        const preview = document.getElementById('imagePreview');
-        preview.innerHTML = '';
-
-        for (let i = 0; i < input.files.length; i++) {
-            const file = input.files[i];
-            const reader = new FileReader();
-
-            reader.onload = function(e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.maxWidth = '200px';
-                img.style.marginRight = '10px';
-                preview.appendChild(img);
-            };
-
-            reader.readAsDataURL(file);
-        }
-    } */
-    $(document).ready(function(){
-
+$(document).ready(function(){
+    
     $.ajax({
         url: "/tecnicos",
         type: "GET",
@@ -56,7 +31,6 @@
         var vinicius = $('#vinicius').val();
         var ocorrencia = $('#inputTextOcorrencia').val();
         var observacao = $('#inputTextObservacao').val();
-        var imagem = $('#inputImagem')[0].files[0];
 
         var dataAtual = new Date();
 
@@ -100,8 +74,7 @@
                 dataUltimoTeste: dataUltimoTeste,
                 vinicius: vinicius,
                 ocorrencia: ocorrencia,
-                observacao: observacao,
-                imagem: imagem
+                observacao: observacao
             };
 
             console.log(formData);
@@ -122,7 +95,7 @@
             alert('Ticket criado com sucesso!');
 
             // limpa os campos de input
-            $('#inputImagem, #inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
+            $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
 
         } else {
             // alerta de campo não preenchido
