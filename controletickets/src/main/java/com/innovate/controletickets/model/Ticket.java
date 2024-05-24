@@ -1,9 +1,17 @@
 package com.innovate.controletickets.model;
 
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.Date;
+import java.util.Base64;
 import java.util.UUID;
 
 @Entity
@@ -50,12 +58,12 @@ public class Ticket {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+    @Lob// @Column(columnDefinition = "BYTEA")
+    private byte[] imagem;
 
-   public Boolean isVinicius() {
-        return this.vinicius;
-    }
+    public byte[] getImagem() {return imagem;}
+    public void setImagem(byte[] imagem) {this.imagem = imagem;}
 
-    //teste
     public Ticket() {
     }
 
@@ -186,5 +194,11 @@ public class Ticket {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    private class StringtoByteArray extends JsonDeserializer {
+        @Override
+        public byte[] deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+            return (Base64.getDecoder().decode(jsonParser.getText().getBytes(StandardCharsets.UTF_8)));    }
     }
 }

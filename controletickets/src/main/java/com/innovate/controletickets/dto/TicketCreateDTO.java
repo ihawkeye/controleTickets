@@ -1,10 +1,10 @@
 package com.innovate.controletickets.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.innovate.controletickets.model.Cliente;
 import com.innovate.controletickets.model.Tecnico;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -51,11 +51,18 @@ public class TicketCreateDTO {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+    @JsonProperty("imagem")
+    private String imagem64;
+
+    public String getImagem64(){ return imagem64;}
+    public void setImagem64(String imagem64) {this.imagem64 = imagem64;}
+
+
     public TicketCreateDTO() {
     }
 
-
 // Getters and Setters
+
 
     public Cliente getCliente() {
         return cliente;
@@ -69,9 +76,7 @@ public class TicketCreateDTO {
         return tecnico;
     }
 
-    public void setTecnico(Tecnico tecnico) {
-        this.tecnico = tecnico;
-    }
+    public void setTecnico(Tecnico tecnico) { this.tecnico = tecnico; }
 
     public String getTipo() {
         return tipo;
@@ -174,6 +179,7 @@ public class TicketCreateDTO {
     }
 
     public void setObservacao(String observacao) {
-        this.observacao = observacao;
+        this.observacao = observacao;}
     }
-}
+
+

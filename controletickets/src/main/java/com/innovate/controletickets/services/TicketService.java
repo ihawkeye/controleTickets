@@ -48,10 +48,18 @@ public class TicketService {
         Tecnico tecnico = tecnicoRepository.findByNome(ticketCreateDTO.getTecnico().getNome());
 
         Ticket ticket = ticketMapper.toEntity(ticketCreateDTO);
-
         ticket.setCliente(cliente);
         ticket.setTecnico(tecnico);
         ticket.setUltimaVersao(ticketCreateDTO.getUltimaVersao());
+
+        // Decodifica a imagem, se presente, e a define no ticket
+        if (ticketCreateDTO.getImagem64() != null) {
+            byte[] imagem = Base64.getDecoder().decode(ticketCreateDTO.getImagem64());
+            ticket.setImagem(imagem);
+        }
+
+
+        ticket = ticketRepository.save(ticket);
 
         return ticketRepository.save(ticket);
     }
@@ -136,9 +144,6 @@ public class TicketService {
         return ticketMapper.toDTO(ticketAtualizado);
     }
 
-    /*
-
-     */
     public TicketResponseDTO alterarTicket(UUID id, Map<String, Object> dadosAtualizados) throws TicketNotFoundException {
         Ticket ticketGravado = buscarTicketPorId(id);
 

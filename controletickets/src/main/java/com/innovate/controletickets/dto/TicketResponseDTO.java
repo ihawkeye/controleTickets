@@ -1,5 +1,6 @@
 package com.innovate.controletickets.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.innovate.controletickets.model.Cliente;
 import com.innovate.controletickets.model.Tecnico;
 import jakarta.persistence.*;
@@ -51,10 +52,14 @@ public class TicketResponseDTO {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
+    @JsonProperty("imagem")
+    private String imagem64;
+
+    public String getImagem64(){ return imagem64;}
+    public void setImagem64(String imagem64) {this.imagem64 = imagem64;}
 
     public TicketResponseDTO() {
     }
-
 
     // Getters and Setters
     public UUID getId() {

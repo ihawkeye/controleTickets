@@ -51,7 +51,8 @@
         <h1 class="title">Abertura de Ticket</h1>
 
         <div class="form-container">
-            <form class="row">
+            <form class="row" enctype="multipart/form-data">
+
                 <div class="row firstRowForm">
                     <div class="col-md-2">
                         <label for="inputSerial" class="form-label">Serial</label>
@@ -126,6 +127,7 @@
                     </div>
                 </div>
 
+
                 <!-- <div class="col-md-4 switch">
                     <div class="form-check form-switch">
                         <label class="form-check-label" for="vinicius">Encaminhado ao Vinícius?</label>
@@ -148,10 +150,13 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="mb-3">
+                    <label for="inputImagem" class="form-label">Anexo de imagens</label>
+                    <input class="form-control" type="file" id="inputImagem" multiple>
+                </div>
 
                 <div class="col-12 acao">
-                    <button type="button" class="btn btn-danger" onclick="window.location.href = 'index.html'">Cancelar</button>
+                    <button type="button" class="btn btn-danger">Cancelar</button>
                     <button type="button" class="btn btn-success" id="abrirTicketBtn">Gravar</button>
                 </div>
             </form>

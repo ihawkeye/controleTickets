@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+    var base64String;
     $.ajax({
         url: "/tecnicos",
         type: "GET",
@@ -16,8 +16,18 @@ $(document).ready(function(){
         }
     });
 
-    $('#abrirTicketBtn').click(() => {
+    $('#inputImagem').change(function() {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onload = function() {
+            base64String = reader.result.split(',')[1];
+            console.log('Imagem convertida para base64:', base64String);
+        };
 
+        reader.readAsDataURL(file);
+    });
+
+    $('#abrirTicketBtn').click(() => {
         var serial = $('#inputSerial').val();
         var nome_cliente = $('#inputNome').val();
         var nome_tecnico = $('#inputTecnico').val();
@@ -34,13 +44,11 @@ $(document).ready(function(){
 
         var dataAtual = new Date();
 
-
         // limpando marcação dos campos
         $('.required').css({"border": "none"});
 
         // ids dos campos obrigatórios
         var camposObrigatorios = ['inputSerial', 'inputNome', 'inputTicket', 'inputVersao', 'inputTextOcorrencia'];
-
 
         // verifica e destaca os campos não preenchidos
         var camposFaltando = [];
@@ -53,7 +61,6 @@ $(document).ready(function(){
         });
 
         if (camposFaltando.length === 0) {
-
             // na esquerda: nome do campo no BD
             var formData = {
                 cliente: {
@@ -74,7 +81,8 @@ $(document).ready(function(){
                 dataUltimoTeste: dataUltimoTeste,
                 vinicius: vinicius,
                 ocorrencia: ocorrencia,
-                observacao: observacao
+                observacao: observacao,
+                imagem: base64String
             };
 
             console.log(formData);
@@ -88,20 +96,18 @@ $(document).ready(function(){
                     console.log('Ticket criado com sucesso', response);
                 },
                 error: function(xhr, status, error) {
-                    console.error('Erro ao criar ticket', error, xhr, status)
+                    console.error('Erro ao criar ticket', error, xhr, status);
                 }
             });
 
             alert('Ticket criado com sucesso!');
 
             // limpa os campos de input
-            $('#inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
+            $('#inputImagem, #inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
 
         } else {
             // alerta de campo não preenchido
             alert('Por favor, preencha todos os campos destacados.');
         }
-
     });
-
 });
