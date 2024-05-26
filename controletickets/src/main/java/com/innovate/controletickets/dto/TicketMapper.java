@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,16 +21,29 @@ public class TicketMapper {
         return entity;
     }
 
-    // Recebe uma entidade e retorna um objeto respose DTO
+    // Recebe uma entidade e retorna um objeto response DTO
     public TicketResponseDTO toDTO(Ticket entity){
         TicketResponseDTO dto = mapper.map(entity, TicketResponseDTO.class);
+
+        if (entity.getImagem() != null) {
+            dto.setImagem64(converteImagemParaBase64(entity.getImagem()));
+        }
+
         return dto;
     }
 
     // Pega uma lista de e entidade (parametro) e retorna uma lista de response DTO
     public List<TicketResponseDTO> toDTO(List<Ticket> tickets){
         return tickets.stream()
-                .map(ticket -> toDTO(ticket))
+                .map(this::toDTO)
                 .collect(Collectors.toList());
     }
+
+    //aqui converte imagem(que está como byte[] no bd) para base64
+    private String converteImagemParaBase64(byte[] imagem) {
+        return Base64.getEncoder().encodeToString(imagem);
+    }
+
+    //vou remover a conversão do base64 para byte[] da classe service e colcoar aqui
+
 }

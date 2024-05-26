@@ -58,7 +58,7 @@ public class Ticket {
     @Column(columnDefinition = "TEXT") // define o tipo no banco como "Text"
     private String observacao;
 
-    @Lob// @Column(columnDefinition = "BYTEA")
+    //@Lob// @Column(columnDefinition = "BYTEA")
     private byte[] imagem;
 
     public byte[] getImagem() {return imagem;}
@@ -196,9 +196,4 @@ public class Ticket {
         this.observacao = observacao;
     }
 
-    private class StringtoByteArray extends JsonDeserializer {
-        @Override
-        public byte[] deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-            return (Base64.getDecoder().decode(jsonParser.getText().getBytes(StandardCharsets.UTF_8)));    }
-    }
 }

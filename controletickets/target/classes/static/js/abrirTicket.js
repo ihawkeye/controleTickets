@@ -4,9 +4,7 @@ $(document).ready(function(){
         url: "/tecnicos",
         type: "GET",
         success: function(response) {
-            // limpa o select pra não dar problema ao renderizar
             $("#inputTecnico").empty();
-            // add os nomes dos técnicos ao select
             response.forEach(function(tecnico) {
                 $("#inputTecnico").append("<option>" + tecnico.nome + "</option>");
             });
