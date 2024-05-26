@@ -18,6 +18,10 @@ public class TicketMapper {
     // Recebe um objeto response DTO do cliente e transforma em uma entidade.
     public Ticket toEntity(TicketCreateDTO dto){
         Ticket entity = mapper.map(dto, Ticket.class);
+
+        if (dto.getImagem64() != null) {
+            entity.setImagem(converteBase64paraBinario(dto.getImagem64()));
+        }
         return entity;
     }
 
@@ -44,6 +48,7 @@ public class TicketMapper {
         return Base64.getEncoder().encodeToString(imagem);
     }
 
-    //vou remover a conversão do base64 para byte[] da classe service e colcoar aqui
+    //converte o base64 para binário
+    private byte[] converteBase64paraBinario(String imagem64){return Base64.getDecoder().decode(imagem64);}
 
 }

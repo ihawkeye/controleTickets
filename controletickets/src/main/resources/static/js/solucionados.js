@@ -115,6 +115,7 @@ $(document).ready(function() {
         $('#vinicius').prop('checked', ticket.vinicius);
         $('#inputTextOcorrencia').val(ticket.ocorrencia);
         $('#inputTextObservacoes').val(ticket.observacao);
+        $('#imgTicket').attr('src', 'data:image/png;base64,' + ticket.imagem);
 
         $('#btnAtualiza').off('click').on('click', function() {
             salvarAlteracoes(ticket.id);

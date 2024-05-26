@@ -286,6 +286,21 @@
                   </div>
 
                </form>
+               <div class="row">
+                  <div class="col-md-12">
+                     <h5>Anexos</h5>
+                     <img id="imgTicket" img src="" class="img-thumbnail" style="width: 100px; height: 100px; cursor:pointer">
+                  </div>
+               </div>
+               <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                     <div class="modal-content">
+                        <div class="modal-body">
+                           <img id="modalImage" src="" class="img-fluid">
+                        </div>
+                     </div>
+                  </div>
+               </div>
 
             </div>
 
@@ -313,7 +328,19 @@
          });
       });
    </script>
-   
+
+   <!--script para ampliar imagem!-->
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const imgTicket = document.getElementById("imgTicket");
+      imgTicket.addEventListener("click", function () {
+         const src = imgTicket.getAttribute("src");
+         const modalImage = document.getElementById("modalImage");
+         modalImage.setAttribute("src", src);
+         const imageModal = new bootstrap.Modal(document.getElementById("imageModal"));
+         imageModal.show();
+      });});
+   </script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

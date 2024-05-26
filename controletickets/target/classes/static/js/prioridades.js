@@ -54,5 +54,6 @@ $(document).ready(function() {
         $('#vinicius').prop('checked', ticket.Vinicius === 'checked');
         $('#inputTextOcorrencia').val(ticket.Ocorrencia);
         $('#inputTextObservacoes').val(ticket.Observacoes);
+        $('#imgTicket').attr('src', 'data:image/png;base64,' + ticket.imagem);
     }
 });

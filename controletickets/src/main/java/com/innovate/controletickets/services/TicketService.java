@@ -52,12 +52,6 @@ public class TicketService {
         ticket.setTecnico(tecnico);
         ticket.setUltimaVersao(ticketCreateDTO.getUltimaVersao());
 
-        // Decodifica a imagem, se presente, e a define no ticket
-        if (ticketCreateDTO.getImagem64() != null) {
-            byte[] imagem = Base64.getDecoder().decode(ticketCreateDTO.getImagem64());
-            ticket.setImagem(imagem);
-        }
-
 
         ticket = ticketRepository.save(ticket);
 
@@ -177,6 +171,22 @@ public class TicketService {
         Ticket ticketAtualizado = ticketRepository.save(ticketGravado);
         return ticketMapper.toDTO(ticketAtualizado);
     }
+
+    /* pensando em mudanças para o método alterarTicket, https://www.w3schools.com/js/js_switch.asp
+    * é possivel que usar um switch-case possa diminuir o tamanho do código
+    *       switch(expressão){
+    *         case x:
+    *           //code block
+    *           break;
+    *
+    * por exemplo, ficaria assim provavelmente
+    *         switch (key) {
+    *            case "ultimaVersao":
+    *              ticketGravado.setUltimaVersao((String) value);
+    *            break; ~~ resto do código
+    *           Por ter 6 casos possíveis, talvez com o switch case sendo usado, tenha uma melhora na performance, não testei
+    *           obs: estou escrevendo pra mim mesmo, só pra não esquecer.
+    */
 
     public void apagarTicket(UUID id) throws TicketNotFoundException{
         Ticket ticket = buscarTicketPorId(id);
