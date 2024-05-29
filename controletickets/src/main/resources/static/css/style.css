@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .nav {
@@ -24,7 +25,7 @@
 
 
 .itemNav {
-  color: #FFF !important;
+  color: hwb(189 92% 5%) !important;
   text-decoration: none;
   font-size: 18px;
 }
@@ -38,12 +39,12 @@
 }
 
 .dropdown-item {
-  background-color: #FFF !important;
+  background-color: #f2f7f8 !important;
   color: black !important;
 }
 
 .dropdown-item:hover {
-  background-color: #f4f4f4 !important;
+  background-color: #f8f2f2c2 !important;
   color: #2a56e7 !important
 }
 
@@ -55,8 +56,8 @@
   text-align: center;
   justify-content: center;
   justify-items: center;
-}
 
+}
 body {
 	background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #5a86ff);
 	background-size: 400% 400%;
@@ -89,12 +90,27 @@ body {
   align-items: center;
   text-align: center;
   flex-direction: column;
-  /* background-image: url(../assets/img/logotipo-03.png);
+  background-image: url(../assets/img/logotipo-03.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative; */
+  position: relative;
 }
+
+/* Adicione um pseudo-elemento para criar a sobreposição */
+/* .content::before {  */
+  /* content: ""; */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* z-index: 0; */
+/* } */
 
 .title {
   color: white;
