@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Noto Sans, sans-serif;
+
 }
 
 .nav {
@@ -95,6 +96,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  
 }
 
 /* Adicione um pseudo-elemento para criar a sobreposição */
@@ -113,7 +115,12 @@ body {
 /* } */
 
 .title {
+  font-family: 'Courier New', Courier, monospace;
   color: white;
+  font-size: 35px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
 }
 
 .menuFiltro {
@@ -140,10 +147,12 @@ body {
   background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #ffffff;
   /* appearance: none; serve para tirar a seta do SELECT*/ 
   /* overflow: hidden; */
-  border: none;
+  border: 2px solid #000000;
   border-radius: 20px;
   width: 80px;
   text-align: center;
+  outline: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .filtroInput {
@@ -155,10 +164,12 @@ body {
 }
 
 #btn-filtro {
-  background-color: #0077ff;
+  background-color: #399adb;
   color: white;
-  border: none;
+  border: 2px solid #0b0b0c;
   border-radius: 20px;
+  outline: none;
+  /*font-size: 1.1em;*/
 }
 
 #btn-filtro:hover {
