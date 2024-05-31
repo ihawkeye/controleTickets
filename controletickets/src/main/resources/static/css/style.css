@@ -112,7 +112,6 @@ body {
   z-index: -1;
 }
 
-
 /* Adicione um pseudo-elemento para criar a sobreposição */
 /* .content::before {  */
   /* content: ""; */
