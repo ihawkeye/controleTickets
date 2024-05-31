@@ -37,16 +37,18 @@
 
 .dropdown:hover>.dropdown-menu {
   display: block;
+  background: transparent;
 }
 
 .dropdown-item {
-  background-color: #f2f7f8 !important;
-  color: black !important;
+  background: transparent !important;
+  color: rgb(255, 255, 255) !important;
+
 }
 
 .dropdown-item:hover {
   background-color: #f8f2f2c2 !important;
-  color: #2a56e7 !important
+  color: #000000 !important
 }
 
 .nav-container {
@@ -91,13 +93,25 @@ body {
   align-items: center;
   text-align: center;
   flex-direction: column;
+  position: relative;
+}
+
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url(../assets/img/logotipo-03.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
-  
+  opacity: 0.6; /* Ajuste a opacidade conforme necessário */
+  z-index: -1;
 }
+
 
 /* Adicione um pseudo-elemento para criar a sobreposição */
 /* .content::before {  */
@@ -164,8 +178,8 @@ body {
 }
 
 #btn-filtro {
-  background-color: #399adb;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border: 2px solid #0b0b0c;
   border-radius: 20px;
   outline: none;

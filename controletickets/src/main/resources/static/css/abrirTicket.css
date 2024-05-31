@@ -54,14 +54,17 @@ body {
 
 .dropdown:hover>.dropdown-menu {
   display: block;
+  background: transparent;
 }
 
 .dropdown-item {
-  color: black !important;
+  color: rgb(255, 255, 255) !important;
+  background: transparent;
 }
 
 .dropdown-item:hover {
-  color: #2a56e7 !important
+  color: #000000 !important;
+  background-color: #f8f2f2c2;
 }
 .dropdown-item:focus {
   background-color: #FFF;
@@ -162,7 +165,8 @@ align-items: center !important;
 }
 
 .card {
-background-color: #0a7280 !important;
+/*background-color: #4556f34d !important */
+background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #0030b3);
 padding: 2%;
 }
 
