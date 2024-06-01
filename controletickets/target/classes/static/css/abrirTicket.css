@@ -55,16 +55,21 @@ body {
 .dropdown:hover>.dropdown-menu {
   display: block;
   background: transparent;
+  backdrop-filter:blur (30px);
+  opacity: 2.35;
+
 }
 
 .dropdown-item {
-  color: rgb(255, 255, 255) !important;
-  background: transparent;
+  background: transparent !important;
+  color: rgb(240, 235, 230) !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
 }
 
 .dropdown-item:hover {
-  color: #000000 !important;
-  background-color: #f8f2f2c2;
+  background-color: #acb8eec2 !important;
+  color: #0c0b0a !important;
 }
 .dropdown-item:focus {
   background-color: #FFF;
