@@ -242,6 +242,14 @@
                            Observações
                         </a>
                      </p>
+
+                     <p class="d-inline-flex imagem">
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseImagem" role="button"
+                           aria-expanded="false" aria-controls="collapseImagem">
+                           Anexos
+                        </a>
+                     </p>
+
                   </div>
 
                   <div class="collapse" id="collapseOcorrencia">
@@ -261,14 +269,19 @@
                         </div>
                      </div>
                   </div>
+
+                  <div class="collapse" id="collapseImagem">
+                     <div class="card card-body">
+                         <label for="inputImagem" class="form-label">Anexos</label>
+                         <div class="col-md-12" id="imgContainer">
+                           <img id="imgTicket" img src="" class="img-thumbnail" style="width: 100px; height: 100px; cursor:pointer">
+
+                         </div>
+                     </div>
+                 </div>
+
                </form>
-               <!-- imagem !-->
-               <div class="row">
-                  <div class="col-md-12">
-                     <h5>Anexos</h5>
-                     <img id="imgTicket" img src="" class="img-thumbnail" style="width: 100px; height: 100px; cursor:pointer">
-                  </div>
-               </div>
+
 
                <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">

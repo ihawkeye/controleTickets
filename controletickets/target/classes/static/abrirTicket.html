@@ -149,8 +149,8 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="inputImagem" class="form-label">Anexo de imagens</label>
-                    <input class="form-control" type="file" id="inputImagem" multiple>
+                    <input class="form-control inputImagem" type="file" id="inputImagem" multiple hidden>
+                    <label for="inputImagem" class="form-label labelImagem">Anexos</label>
                 </div>
 
                 <div class="col-12 acao">
@@ -167,6 +167,20 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="./js/abrirTicket.js"></script>
+
+    <script>
+        // aqui conta a quantidade de arquivos selecionados
+        const inputImagem = document.getElementById('inputImagem');
+        const labelImagem = document.querySelector('.labelImagem');
+
+        inputImagem.addEventListener('change', () => {
+            const files = inputImagem.files;
+            const count = files.length;
+            const countText = `${count} arquivo${count > 1 ? 's' : ''}`;
+            labelImagem.textContent = `Anexos (${countText})`;
+        });
+    </script>
+
     
     
 </body>
