@@ -295,27 +295,23 @@
 
                   <div class="collapse" id="collapseImagem">
                      <div class="card card-body">
-                         <label for="inputImagem" class="form-label">Anexos</label>
-                         <div class="col-md-12" id="imgContainer">
-                           <img id="imgTicket" img src="" class="img-thumbnail" style="width: 100px; height: 100px; cursor:pointer">
-
-                         </div>
-                     </div>
-                 </div>
-
-               </form>
-
-               <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                     <div class="modal-content">
-                        <div class="modal-body">
-                           <img id="modalImage" src="" class="img-fluid">
+                        <label for="inputImagem" class="form-label">Anexos</label>
+                        <div class="col-md-12" id="imgContainer">
                         </div>
                      </div>
                   </div>
-               </div>
-            </div>
+                  <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-body">
+                              <img id="modalImage" src="" class="img-fluid" alt="Imagem ampliada">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </form>
 
+            </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                   Fechar
@@ -327,6 +323,7 @@
          </div>
       </div>
    </div>
+
 
    <!-- script para abrir o modal -->
    <script>
@@ -340,17 +337,24 @@
          });
       });
    </script>
-   <!--script para ampliar imagem!-->
-   <script>
+
+      <!--script para ampliar imagem!-->
+
+      <script>
       document.addEventListener("DOMContentLoaded", function () {
-         const imgTicket = document.getElementById("imgTicket");
-         imgTicket.addEventListener("click", function () {
-            const src = imgTicket.getAttribute("src");
+         const imgContainer = document.getElementById("imgContainer");
+         function openModal(src) {
             const modalImage = document.getElementById("modalImage");
             modalImage.setAttribute("src", src);
             const imageModal = new bootstrap.Modal(document.getElementById("imageModal"));
             imageModal.show();
-         });});
+         }
+         imgContainer.addEventListener("click", function (event) {
+            if (event.target && event.target.matches(".img-thumbnail")) {
+               openModal(event.target.getAttribute("src"));
+            }
+         });
+      });
    </script>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>

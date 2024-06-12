@@ -10,6 +10,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class TicketCreateDTO {
@@ -52,14 +53,14 @@ public class TicketCreateDTO {
     private String observacao;
 
     @JsonProperty("imagem")
-    private String imagem64;
+    private List<String> imagem64;
 
-    public String getImagem64(){ return imagem64;}
-    public void setImagem64(String imagem64) {this.imagem64 = imagem64;}
+    public List<String> getImagem64(){ return imagem64;}
+    public void setImagem64(List<String> imagem64) {this.imagem64 = imagem64;}
 
 
     public TicketCreateDTO() {
-    }
+}
 
 // Getters and Setters
 

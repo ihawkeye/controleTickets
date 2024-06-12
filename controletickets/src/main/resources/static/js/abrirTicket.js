@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var base64String;
+    var base64Strings = [];
     $.ajax({
         url: "/tecnicos",
         type: "GET",
@@ -13,16 +13,22 @@ $(document).ready(function(){
             console.error("Erro ao buscar os técnicos:", error);
         }
     });
-
     $('#inputImagem').change(function() {
-        var file = this.files[0];
-        var reader = new FileReader();
-        reader.onload = function() {
-            base64String = reader.result.split(',')[1];
-            console.log('Imagem convertida para base64:', base64String);
-        };
-
-        reader.readAsDataURL(file);
+        var files = this.files;
+        for (var i = 0; i < files.length; i++) {
+            (function(file) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var base64String = reader.result.split(',')[1];
+                    base64Strings.push(base64String);
+                    console.log('Imagem convertida para base64:', base64String);
+                    if (base64Strings.length === files.length) {
+                        console.log('Todas as imagens convertidas:', base64Strings);
+                    }
+                };
+                reader.readAsDataURL(file);
+            })(files[i]);
+        }
     });
 
     $('#abrirTicketBtn').click(() => {
@@ -80,7 +86,7 @@ $(document).ready(function(){
                 vinicius: vinicius,
                 ocorrencia: ocorrencia,
                 observacao: observacao,
-                imagem: base64String
+                imagem: base64Strings
             };
 
             console.log(formData);

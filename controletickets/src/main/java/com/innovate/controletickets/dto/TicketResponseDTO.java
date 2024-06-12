@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class TicketResponseDTO {
@@ -53,10 +54,10 @@ public class TicketResponseDTO {
     private String observacao;
 
     @JsonProperty("imagem")
-    private String imagem64;
+    private List<String> imagem64;
 
-    public String getImagem64(){ return imagem64;}
-    public void setImagem64(String imagem64) {this.imagem64 = imagem64;}
+    public List<String> getImagem64(){ return imagem64;}
+    public void setImagem64(List<String> imagem64) {this.imagem64 = imagem64;}
 
     public TicketResponseDTO() {
     }

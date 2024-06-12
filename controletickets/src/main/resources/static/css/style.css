@@ -368,4 +368,21 @@ body {
   background-color: rgb(207, 25, 25);
 }
 
-
+/* imagens*/
+#imgContainer {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espaçamento entre as imagens */
+}
+.img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-thumbnail {
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.Date;
 import java.util.Base64;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -59,10 +60,10 @@ public class Ticket {
     private String observacao;
 
     //@Lob// @Column(columnDefinition = "BYTEA")
-    private byte[] imagem;
-
-    public byte[] getImagem() {return imagem;}
-    public void setImagem(byte[] imagem) {this.imagem = imagem;}
+    @ElementCollection
+    private List<byte[]> imagens;
+    public List<byte[]> getImagens() {return imagens;}
+    public void setImagens(List<byte[]> imagens) {this.imagens = imagens;}
 
     public Ticket() {
     }

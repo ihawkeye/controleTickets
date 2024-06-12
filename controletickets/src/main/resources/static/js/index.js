@@ -113,8 +113,19 @@ $(document).ready(function() {
         $('#vinicius').prop('checked', ticket.vinicius);
         $('#inputTextOcorrencia').val(ticket.ocorrencia);
         $('#inputTextObservacoes').val(ticket.observacao);
-        $('#imgTicket').attr('src', 'data:image/png;base64,' + ticket.imagem);
+        $('#imgContainer').empty();
 
+        ticket.imagem.forEach(function(imagem) {
+            var imgWrapper = $('<div>').addClass('img-wrapper');
+            var imgElement = $('<img>')
+                .attr('src', 'data:image/png;base64,' + imagem)
+                .addClass('img-thumbnail')
+                .on('click', function() {
+                    openModal($(this).attr('src'));
+                });
+            imgWrapper.append(imgElement);
+            $('#imgContainer').append(imgWrapper);
+        });
         $('#btnAtualiza').off('click').on('click', function() {
             salvarAlteracoes(ticket.id);
         });

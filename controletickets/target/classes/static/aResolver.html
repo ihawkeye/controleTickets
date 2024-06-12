@@ -291,27 +291,25 @@
                         </div>
                      </div>
                   </div>
+
                   <div class="collapse" id="collapseImagem">
                      <div class="card card-body">
-                         <label for="inputImagem" class="form-label">Anexos</label>
-                         <div class="col-md-12" id="imgContainer">
-                           <img id="imgTicket" img src="" class="img-thumbnail" style="width: 100px; height: 100px; cursor:pointer">
-
-                         </div>
-                     </div>
-                 </div>
-
-               </form>
-
-               <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                     <div class="modal-content">
-                        <div class="modal-body">
-                           <img id="modalImage" src="" class="img-fluid">
+                        <label for="inputImagem" class="form-label">Anexos</label>
+                        <div class="col-md-12" id="imgContainer">
                         </div>
                      </div>
                   </div>
-               </div>
+                  <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-body">
+                              <img id="modalImage" src="" class="img-fluid" alt="Imagem ampliada">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </form>
 
             </div>
 
@@ -340,7 +338,7 @@
       });
    </script>
 
-   <!--script para ampliar imagem!-->
+   <!--script para ampliar imagem
    <script>
       document.addEventListener("DOMContentLoaded", function () {
       const imgTicket = document.getElementById("imgTicket");
@@ -352,7 +350,24 @@
          imageModal.show();
       });});
    </script>
+   !-->
 
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const imgContainer = document.getElementById("imgContainer");
+      function openModal(src) {
+         const modalImage = document.getElementById("modalImage");
+         modalImage.setAttribute("src", src);
+         const imageModal = new bootstrap.Modal(document.getElementById("imageModal"));
+         imageModal.show();
+      }
+      imgContainer.addEventListener("click", function (event) {
+         if (event.target && event.target.matches(".img-thumbnail")) {
+            openModal(event.target.getAttribute("src"));
+         }
+      });
+   });
+   </script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
