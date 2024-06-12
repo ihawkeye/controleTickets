@@ -19,6 +19,10 @@ $(document).ready(function() {
         });
     }
 
+    function converterData(data) {
+        var partesDaData = data.split('-');
+        return partesDaData[2] + '/' + partesDaData[1] + '/' + partesDaData[0];
+    }
 
     function adicionarLinhaTabela(ticket) {
         var editButton = $('<button>').addClass('btn btn-primary').attr({
@@ -40,8 +44,8 @@ $(document).ready(function() {
             $('<td>').text(ticket.cliente.serial),
             $('<td>').text(ticket.cliente.nome),
             $('<td>').text(ticket.numero),
-            $('<td>').text(ticket.dataOcorrencia),
-            $('<td>').text(ticket.dataUltimaInteracao),
+            $('<td>').text(converterData(ticket.dataOcorrencia)),
+            $('<td>').text(converterData(ticket.dataUltimaInteracao)),
             $('<td>').append(editButton),
             $('<td>').append(interactButton)
         );
@@ -98,8 +102,8 @@ $(document).ready(function() {
     function preencherModal(ticket) {
         console.log(ticket);
         $('#modalLabel').text('Ticket ' + ticket.numero + ' - Cliente ' + ticket.cliente.nome);
-        $('#inputDateUltimaInteracao').val(ticket.dataUltimaInteracao);
-        $('#inputDateOcorrencia').val(ticket.dataOcorrencia);
+        $('#inputDateUltimaInteracao').val(converterData(ticket.dataUltimaInteracao));
+        $('#inputDateOcorrencia').val(converterData(ticket.dataOcorrencia));
         $('#inputSerial').val(ticket.cliente.serial);
         $('#inputCliente').val(ticket.cliente.nome);
         $('#inputTecnico').val(ticket.tecnico.nome);
