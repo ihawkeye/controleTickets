@@ -98,20 +98,39 @@ $(document).ready(function(){
                 data: JSON.stringify(formData),
                 success: function(response) {
                     console.log('Ticket criado com sucesso', response);
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Ticket criado com sucesso",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 },
                 error: function(xhr, status, error) {
                     console.error('Erro ao criar ticket', error, xhr, status);
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Erro ao criar ticket",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             });
 
-            alert('Ticket criado com sucesso!');
 
             // limpa os campos de input
             $('#inputImagem, #inputSerial, #inputNome, #inputTecnico, #inputTicket, #inputTipo, #inputPrioridade, #inputCategoria, #inputVersao, #inputStatus, #inputUltimoTeste, #vinicius, #inputTextOcorrencia, #inputTextObservacao').val('');
 
         } else {
             // alerta de campo não preenchido
-            alert('Por favor, preencha todos os campos destacados.');
+            Swal.fire({
+                position: "center",
+                icon: "warning",
+                title: "Campos não preenchidos",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     });
 });

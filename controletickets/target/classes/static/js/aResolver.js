@@ -44,11 +44,11 @@ $(document).ready(function() {
         newRow.append(
             $('<td>').text(ticket.cliente.serial),
             $('<td>').text(ticket.cliente.nome),
-            $('<td>').text(ticket.numero),
+            $('<td>').text(ticket.numero),       
+            $('<td>').text(ticket.status).addClass('statusbadge'),
+            $('<td>').text(ticket.tecnico.nome),
             $('<td>').text(converterData(ticket.dataOcorrencia)),
             $('<td>').text(converterData(ticket.dataUltimaInteracao)),
-            $('<td>').text(ticket.tecnico.nome),
-            $('<td>').text(ticket.status).addClass('statusbadge'),
             $('<td>').append(editButton),
             $('<td>').append(interactButton)
         );
@@ -70,12 +70,23 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ dataAtual: dataAtual.toISOString() }),
             success: function(response) {
-                console.log("Sucesso ao interagir com o ticket:", response);
                 carregarTickets();
-                alert('Interação concluída!');
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Interação concluída!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             },
             error: function(xhr, status, error) {
-                console.error("Erro ao interagir com o ticket:", error);
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Erro ao interagir com o ticket:",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         });
     });
@@ -157,10 +168,22 @@ $(document).ready(function() {
                 console.log("Sucesso ao atualizar o ticket:", response);
                 carregarTickets();
                 $('#modal').modal('hide');
-                alert('Alterações salvas com sucesso!');
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Alterações salvas com sucesso!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             },
             error: function(xhr, status, error) {
-                console.error("Erro ao atualizar o ticket:", error, status, xhr);
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Erro ao atualizar o ticket",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         });
     }
