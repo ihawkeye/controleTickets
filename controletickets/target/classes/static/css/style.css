@@ -73,7 +73,7 @@ body {
 	background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #5a86ff);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
-	height: 200vh;
+	height: 100%;
   display: flex; /* define a largura total */
   /* justify-content: center; centraliza horizontalmente */
   align-items: center; /* centraliza verticalmente */
@@ -124,9 +124,8 @@ body {
   font-family: 'Courier New', Courier, monospace;
   color: white;
   font-size: 35px;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-bottom: 5%;
-
 }
 
 .menuFiltro {
@@ -351,13 +350,11 @@ body {
 }
 
 .btn-success {
-  background-color: #ededee;
-  color: #007bff;
+  margin-left: 2%;
 }
 
 .btn-success:hover {
-  background-color: #ffffff;
-  color: #007bff;
+  background-color: #10800c;
 }
 
 .btn-danger {

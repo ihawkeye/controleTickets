@@ -41,9 +41,9 @@ $(document).ready(function() {
             $('<td>').text(ticket.cliente.nome),
             $('<td>').text(ticket.numero),
             $('<td>').text(ticket.dataOcorrencia),
-            $('<td>').text(ticket.status),
             $('<td>').text(ticket.dataUltimaInteracao),
             $('<td>').text(ticket.tecnico.nome),
+            $('<td>').text(ticket.status).addClass('statusbadge'),
             $('<td>').append(editButton),
             $('<td>').append(interactButton)
         );
