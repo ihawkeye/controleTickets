@@ -38,7 +38,7 @@ $(document).ready(function() {
 
     // função para preencher os campos do modal com os dados do ticket
     function preencherModal(ticket) {
-        $('#modalLabel').text('Ticket ' + ticket.Ticket + ' - Cliente ' + ticket.Cliente);
+        $('#modalLabel').text('Ticket ' + ticket.Ticket); // + ' - Cliente ' + ticket.Cliente);
         $('#inputDateUltimaInteracao').val(ticket.DataUltimaInteracao);
         $('#inputDateOcorrencia').val(ticket.DataOcorrencia);
         $('#inputSerial').val(ticket.Serial);

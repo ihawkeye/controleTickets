@@ -152,7 +152,7 @@ $(document).ready(function() {
 
     function preencherModal(ticket) {
         console.log(ticket);
-        $('#modalLabel').text('Ticket ' + ticket.numero + ' - Cliente ' + ticket.cliente.nome);
+        $('#modalLabel').text('Ticket ' + ticket.numero); //+ ' - Cliente ' + ticket.cliente.nome);
         $('#inputDateUltimaInteracao').val(converterData(ticket.dataUltimaInteracao));
         $('#inputDateOcorrencia').val(converterData(ticket.dataOcorrencia));
         $('#inputSerial').val(ticket.cliente.serial);
