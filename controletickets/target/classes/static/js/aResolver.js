@@ -74,17 +74,17 @@ $(document).ready(function() {
         var ticketsFiltrados = todosOsTickets.filter(function(ticket) {
             switch (filtro) {
                 case "ticket":
-                    return ticket.numero.toLowerCase().includes(filtroInput);
+                    return ticket.numero && ticket.numero.toLowerCase().includes(filtroInput);
                 case "serial":
-                    return ticket.cliente.serial.toLowerCase().includes(filtroInput);
+                    return ticket.cliente.serial && ticket.cliente.serial.toLowerCase().includes(filtroInput);
                 case "nome":
-                    return ticket.cliente.nome.toLowerCase().includes(filtroInput);
+                    return ticket.cliente.nome && ticket.cliente.nome.toLowerCase().includes(filtroInput);
                 default:
                     return false;
             }
         });
 
-        $('tbody').empty(); // Limpa a tabela antes de adicionar os novos dados
+        $('tbody').empty();
         ticketsFiltrados.forEach(function(ticket) {
             adicionarLinhaTabela(ticket);
         });
