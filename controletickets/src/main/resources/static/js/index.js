@@ -44,8 +44,10 @@ $(document).ready(function() {
             $('<td>').text(ticket.cliente.serial),
             $('<td>').text(ticket.cliente.nome),
             $('<td>').text(ticket.numero),       
-            $('<td>').text(ticket.status).addClass('statusbadge'),
             $('<td>').text(ticket.tecnico.nome),
+            $('<td>').append(
+                $('<span>').text(ticket.status).addClass('statusbadge')
+            ),
             $('<td>').text(converterData(ticket.dataOcorrencia)),
             $('<td>').text(converterData(ticket.dataUltimaInteracao)),
             $('<td>').append(editButton),

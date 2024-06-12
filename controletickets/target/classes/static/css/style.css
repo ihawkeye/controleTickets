@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Noto Sans, sans-serif;
+  font-family: "Ubuntu", sans-serif;
 
 }
 
@@ -45,7 +45,7 @@
 .dropdown-item {
   background: transparent !important;
   color: rgba(1, 8, 8, 0.849) !important;
-  font-family: FreeMono, monospace;
+  /* font-family: FreeMono, monospace; */
   /*font-weight: bold;*/
   /*font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
   
@@ -120,7 +120,7 @@ body {
 }
 
 .title {
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
   color: white;
   font-size: 35px;
   margin-top: 2%;
@@ -156,7 +156,7 @@ body {
   width: 80px;
   text-align: center;
   outline: none;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
 }
 
 .filtroInput {
@@ -209,6 +209,11 @@ body {
   background-color: #ffffff !important;
   color: #0077ff !important;
   border-radius: 100%;
+}
+
+.statusbadge {
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .btn {
