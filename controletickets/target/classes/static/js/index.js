@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var todosOsTickets = [];
 
     function carregarTickets () {
         $.ajax({
@@ -7,10 +8,9 @@ $(document).ready(function() {
             contentType: 'application/json',
             success: function (response) {
                 $('tbody').empty();
-                console.log(response);
+                todosOsTickets = response;
                 response.forEach(function (ticket, index){
                     adicionarLinhaTabela(ticket);
-                    console.log(ticket);
                 });
             },
             error: function(xhr, status, error){
@@ -57,6 +57,42 @@ $(document).ready(function() {
         $('tbody').append(newRow);
     }
 
+    function filtrar() {
+        var filtro = $("#filtro").val();
+        var filtroInput = $("#filtroInput").val().toLowerCase();
+
+        if (!filtroInput) {
+            // Se o campo de input do filtro estiver vazio ele vai mostrar tods
+            $('tbody').empty(); // função para limpar a tabela
+            todosOsTickets.forEach(function(ticket) {
+                adicionarLinhaTabela(ticket);
+            });
+            return;
+        }
+
+        var ticketsFiltrados = todosOsTickets.filter(function(ticket) {
+            switch (filtro) {
+                case "ticket":
+                    return ticket.numero.toLowerCase().includes(filtroInput);
+                case "serial":
+                    return ticket.cliente.serial.toLowerCase().includes(filtroInput);
+                case "nome":
+                    return ticket.cliente.nome.toLowerCase().includes(filtroInput);
+                default:
+                    return false;
+            }
+        });
+
+        $('tbody').empty(); // Limpa a tabela antes de adicionar os novos dados
+        ticketsFiltrados.forEach(function(ticket) {
+            adicionarLinhaTabela(ticket);
+        });
+    }
+
+    $('#btn-filtro').click(function() {
+        filtrar();
+    });
+
     
     carregarTickets();
 
@@ -77,7 +113,7 @@ $(document).ready(function() {
                     icon: "success",
                     title: "Interação concluída!",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2500
                 });
             },
             error: function(xhr, status, error) {
@@ -86,7 +122,7 @@ $(document).ready(function() {
                     icon: "error",
                     title: "Erro ao interagir com o ticket:",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2500
                 });
             }
         });
@@ -174,7 +210,7 @@ $(document).ready(function() {
                     icon: "success",
                     title: "Alterações salvas com sucesso!",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2500
                 });
             },
             error: function(xhr, status, error) {
@@ -183,7 +219,7 @@ $(document).ready(function() {
                     icon: "error",
                     title: "Erro ao atualizar o ticket",
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2500
                 });
             }
         });
