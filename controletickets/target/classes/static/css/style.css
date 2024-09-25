@@ -2,28 +2,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Ubuntu", sans-serif;
-
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .nav {
   margin-top: 0.5%;
-  /*background-color: #1c40b6 !important;*/ 
+  /*background-color: #1c40b6 !important;*/
   width: 100%;
   display: flex;
   /* margin-bottom: 0.5%; */
-  align-items: center; 
+  align-items: center;
   /* justify-content: space-between; */
 }
 
 .navbar-brand {
-    height: 35;
-    width: 35;
-    /* background-image: url("../static/assets/img/logotipo-03.png"); */
-    background-size: contain; /* Ajuste conforme necessário */
-    /* Outras propriedades de estilo, como largura, altura, etc. */
+  height: 35;
+  width: 35;
+  /* background-image: url("../static/assets/img/logotipo-03.png"); */
+  background-size: contain; /* Ajuste conforme necessário */
+  /* Outras propriedades de estilo, como largura, altura, etc. */
 }
-
 
 .itemNav {
   color: hwb(189 92% 5%) !important;
@@ -31,11 +29,12 @@
   font-size: 18px;
 }
 
-.itemNav:hover, .itemNav:focus {
+.itemNav:hover,
+.itemNav:focus {
   text-decoration: underline;
 }
 
-.dropdown:hover>.dropdown-menu {
+.dropdown:hover > .dropdown-menu {
   display: block;
   background: transparent;
   opacity: 2.35;
@@ -48,14 +47,11 @@
   /* font-family: FreeMono, monospace; */
   /*font-weight: bold;*/
   /*font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
-  
-
 }
 
 .dropdown-item:hover {
-background-color: #d9e4f3a4 !important;
-color: #00010a !important;
-  
+  background-color: #d9e4f3a4 !important;
+  color: #00010a !important;
 }
 
 .nav-container {
@@ -67,13 +63,12 @@ color: #00010a !important;
   justify-content: center;
   justify-items: center;
   /*background-color: #1c40b6;*/
-
 }
 body {
-	background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #5a86ff);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100%;
+  background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #5a86ff);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100%;
   display: flex; /* define a largura total */
   /* justify-content: center; centraliza horizontalmente */
   align-items: center; /* centraliza verticalmente */
@@ -81,15 +76,15 @@ body {
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .content {
@@ -104,9 +99,8 @@ body {
   position: relative;
 }
 
-
 .content::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -136,8 +130,8 @@ body {
 
 .filtro {
   background: linear-gradient(-45deg, #0094f6, #0143d1, #0077ff, #0030b3);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   border: solid 2px !important;
   border-color: #000000 !important;
   border-radius: 10px;
@@ -148,8 +142,9 @@ body {
 }
 
 .filtroSelect {
-  background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #ffffff;
-  /* appearance: none; serve para tirar a seta do SELECT*/ 
+  background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif)
+    no-repeat #ffffff;
+  /* appearance: none; serve para tirar a seta do SELECT*/
   /* overflow: hidden; */
   border: 2px solid #000000;
   border-radius: 20px;
@@ -163,8 +158,8 @@ body {
   border: solid;
   border-radius: 20px;
   padding-left: 1%;
-  margin-left: 1% ;
-  margin-right: 1% ;
+  margin-left: 1%;
+  margin-right: 1%;
 }
 
 #btn-filtro {
@@ -179,7 +174,6 @@ body {
 #btn-filtro:hover {
   background-color: white;
   color: #0077ff;
-
 }
 
 .table-container {
@@ -204,7 +198,7 @@ body {
   color: #ffffff;
 }
 
-.table-hover tbody tr:hover td button{
+.table-hover tbody tr:hover td button {
   /* background: rgb(122, 145, 170); */
   background-color: #ffffff !important;
   color: #0077ff !important;
@@ -220,11 +214,12 @@ body {
   cursor: pointer;
 }
 
-#btn-edit, #btn-interact {
-    background-color: #0077ff;
-    color: #ffffff;
-    border-radius: 100%;
-    cursor: pointer;
+#btn-edit,
+#btn-interact {
+  background-color: #0077ff;
+  color: #ffffff;
+  border-radius: 100%;
+  cursor: pointer;
 }
 
 #btn-edit:hover {
@@ -256,29 +251,25 @@ body {
   margin-left: 25%;
 }
 
-#labelDateOcorrencia, #labelDateUltimaInteracao {
+#labelDateOcorrencia,
+#labelDateUltimaInteracao {
   margin-top: 1.5%;
   margin-right: 2%;
 }
 
-#inputDateOcorrencia, #inputDateUltimaInteracao {
+#inputDateOcorrencia,
+#inputDateUltimaInteracao {
   width: 40% !important;
   text-align: center;
 }
 
-
 .modal-body {
-  display: flex;
-  flex-direction: column;
-  background-color: #f7f7f7;
-  color: #1a1919;
-  justify-content:space-around !important;
 }
 
 .modal-dialog {
   /* height: 60%; */
   max-width: none;
-  width: 70% !important;
+  width: 80% !important;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
@@ -296,7 +287,12 @@ body {
   height: 100%;
   width: 100%;
   align-items: center;
-  justify-content:space-around important;
+  justify-content: space-around !important;
+/* essas estavam na classe acima */
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  color: #1a1919;
 }
 
 .modal-body span {
@@ -334,13 +330,12 @@ body {
   margin-left: 0.5%;
 }
 
-
 .btnContainerObsOcr {
   margin-top: 1%;
   display: flex;
   width: 100%;
-  align-items:normal !important;
-  justify-content:space-around !important;
+  align-items: normal !important;
+  justify-content: space-around !important;
 }
 
 .card-body {
